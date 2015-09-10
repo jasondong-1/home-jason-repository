@@ -73,7 +73,7 @@
             <a href="#" class="navbar-brand">
                 <small>
                     <i class="fa fa-cogs red"></i>
-                    分布式管理系统
+                    精准营销--用户画像系统
                 </small>
             </a>
 
