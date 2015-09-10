@@ -20,12 +20,12 @@
         </encoder>
     </appender>
 
-    <logger name="com.ideal.coral" level="DEBUG" additivity="false">
+    <logger name="com.ideal.tagportrait" level="DEBUG" additivity="false">
         <appender-ref ref="console"/>
     </logger>
-    <logger name="org.hibernate.SQL" level="INFO">
+    <logger name="org.hibernate.SQL" level="DEBUG">
     </logger>
-    <logger name="com.ideal.coral.common.security.ShiroDbRealm" level="INFO"/>
+    <logger name="com.ideal.tagportrait.common.security.ShiroDbRealm" level="INFO"/>
     <!--
     <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
     <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="DEBUG"/>
