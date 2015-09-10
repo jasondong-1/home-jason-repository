@@ -90,6 +90,19 @@
             </exclusions>
         </dependency>
 
+        <!-- spring data mongo begin-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>${spring.data.mongo.version}</version>
+        </dependency>
+        <!-- spring data mongo end-->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>${mongo.version}</version>
+        </dependency>
+
         <!-- 安全 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -134,7 +147,6 @@
                 </goals>
                 <configuration>
                     <excludes>
-                        <exclude>protobuf/</exclude>
                         <exclude>spring/</exclude>
                         <exclude>*.properties</exclude>
                     </excludes>

@@ -1,0 +1,38 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/jpa
+		http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task.xsd"
+       default-lazy-init="true">
+
+    <description>Spring公共配置文件</description>
+
+    <!--支持注解 @Required, @Autowired, @PostConstruc-->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.ideal.tagportrait.web.controller"/>
+    <!--
+    <context:component-scan base-package="com.ideal.coral.common.service"/>
+    -->
+    <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+    <context:component-scan base-package="com.ideal.tagportrait.web.service"/>
+    <!--
+    <context:component-scan base-package="com.ideal.coral.component"/>
+    -->
+    <!-- web模块的component-->
+
+<!--
+    <context:component-scan base-package="com.ideal.tagportrait.web.component"/>
+-->
+
+    <!-- Spring Data Jpa配置 -->
+    <jpa:repositories base-package="com.ideal.tagportrait.common.repository"
+                      factory-class="com.ideal.tagportrait.common.framework.orm.FrameworkJpaRepositoryFactoryBean"/>
+</beans>

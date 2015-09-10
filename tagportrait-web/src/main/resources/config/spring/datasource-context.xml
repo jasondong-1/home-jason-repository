@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <description>数据访问配置</description>
+
+    <context:property-placeholder
+            location="classpath:config/spring/config.properties"/>
+
+    <!-- 数据源定义-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.project.driver_class}"/>
+        <property name="url" value="${jdbc.project.url}"/>
+        <property name="username" value="${jdbc.project.username}"/>
+        <property name="password" value="${jdbc.project.password}"/>
+    </bean>
+
+    <!--指定实现厂商专用特性-->
+    <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="databasePlatform">
+            <bean factory-method="getDialect" class="com.ideal.tagportrait.common.framework.orm.AutoDialect">
+                <constructor-arg ref="dataSource"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!--jpa entity管理器-->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
+        <property name="packagesToScan" value="com.ideal.tagportrait.common.entity,com.ideal.tagportrait.common.framework.entity"/>
+        <property name="jpaProperties">
+            <props>
+                <!--设置注释命名策略,命名规则 My_NAME->MyName-->
+                <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Jpa 事务配置 -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+    <!-- JSR303 Bean Validator定义 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <!--支持注解 @Required, @Autowired, @PostConstruc-->
+    <context:annotation-config/>
+    <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+    <context:component-scan base-package="com.ideal.tagportrait.common.repository"/>
+
+</beans>
