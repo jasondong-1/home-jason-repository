@@ -8,7 +8,7 @@
 
     <decorator name="default" page="layout.jsp">
         <pattern>/main/*</pattern>
-        <pattern>/monitor/*</pattern>
+        <pattern>/hot/*</pattern>
         <pattern>/console/*</pattern>
         <pattern>/ability/*</pattern>
     </decorator>

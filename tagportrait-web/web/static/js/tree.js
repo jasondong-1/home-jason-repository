@@ -24,7 +24,7 @@ $(function () {
             /**
              * Ajax 获取数据的 URL 地址。[setting.async.enable = true 时生效]
              */
-            url: "hive_meta_tree.do",
+            url: "tag_tree.do",
             /**
              * 默认post
              */
