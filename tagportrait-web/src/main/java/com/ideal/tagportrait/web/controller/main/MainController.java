@@ -2,7 +2,7 @@ package com.ideal.tagportrait.web.controller.main;
 
 import com.google.common.collect.Lists;
 import com.ideal.tagportrait.web.controller.BaseController;
-import com.ideal.tagportrait.web.service.main.MainService;
+import com.ideal.tagportrait.common.service.MainService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -30,8 +30,8 @@ public class MainController extends BaseController {
     public void index(Model model) {
         /*List<PlatformForm> platformFormList = mainService.getPlatformInfo();
         model.addAttribute("platforms",platformFormList);*/
-        List<String> names = mainService.findStudentNames();
-        model.addAttribute("hqlList", names);
+       // List<String> names = mainService.findStudentNames();
+        //model.addAttribute("hqlList", names);
     }
 
 }
