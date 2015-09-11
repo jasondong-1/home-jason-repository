@@ -152,7 +152,7 @@
 
 <script type="text/javascript">
     jQuery(function ($) {
-//        $(".chosen-select").chosen();
+        $(".chosen-select").chosen();
 //        $('#chosen-multiple-style').on('click', function (e) {
 //            var target = $(e.target).find('input[type=radio]');
 //            var which = parseInt(target.val());
@@ -173,7 +173,8 @@
         //require('echarts').init(document.getElementById('form-field-select-2')).setOption(option);
         if(success){
             alert(JSON.stringify(r));
-            //$("#form-field-select-2").options.length=1;
+            $("#form-field-select-2").empty();
+            $("#form-field-select-2").append("<option value=\"0\" selected=\"selected\">全部</option>");
             for(var i=0;i<data.length;i++){
                 var item = data[i];
                 var option = "<option value='" + item.id +"'>" + item.name + "</option>";
@@ -181,7 +182,8 @@
 
                 //jQuery("<option></option>").attr({val:data.id,text:data.name}).appendTo("#form-field-select-2");
             }
-            $("#form-field-select-2").chosen();
+            $("#form-field-select-2").trigger("chosen:updated");
+            //$("#form-field-select-2").chosen();
         }
     }
 </script>
