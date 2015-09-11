@@ -32,7 +32,8 @@ $(function () {
             /**
              * 异步加载时需要自动提交父节点属性的参数。
              */
-            autoParam: ["id"]
+            autoParam: ["id"],
+            otherParam: {"areaId": 1}
         },
         callback: {
             onClick: onClick
@@ -41,6 +42,16 @@ $(function () {
     //当你点击父节点时,会异步访问Controller,把id传过去
     var treeNodes = [];
     zTree = $.fn.zTree.init($("#tagTree"), setting, treeNodes);
+
+    $("#btnSearch").on("click", function () {
+        var areaId = $("#form-field-select-1").val();
+        //var treeObj = $.fn.zTree.getZTreeObj("tagTree");
+        //treeObj.setting.async.otherParam = {areaId: areaId};
+        setting.async.otherParam = {areaId: areaId};
+        var treeNodes = [];
+        alert(JSON.stringify(setting));
+        zTree = $.fn.zTree.init($("#tagTree"), setting, treeNodes);
+    });
 });
 function onClick(event, treeId, treeNode) {
 

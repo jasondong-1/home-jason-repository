@@ -6,6 +6,11 @@ var option = {
         trigger: 'axis'
     },
     calculable : true,
+    grid: {
+        borderWidth: 0,
+        y: 80,
+        y2: 60
+    },
     xAxis : [
         {
             type : 'category',
@@ -26,9 +31,29 @@ var option = {
     ]
 };
 
+var itemStyle = {
+    normal: {
+        color: function(params) {
+            // build a color map as your need.
+            var colorList = [
+                '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+                '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+            ];
+            return colorList[params.dataIndex]
+        },
+        label: {
+            show: true,
+                position: 'top',
+                formatter: '{b}\n{c}'
+        }
+    }
+};
+
 function onClick(event, treeId, treeNode) {
-    var url = 'show_tag_chart.do'
-    var data = {tagId: treeNode.id};
+    var url = 'show_tag_chart.do';
+    var areaId = $("#form-field-select-1").val();
+    var data = {tagId: treeNode.id, areaId: areaId};
     X.post(url, data, treeClickCallback);
 }
 
@@ -39,6 +64,7 @@ function treeClickCallback(r) {
     var success = r['success'];
     option.xAxis = data['xAxis'];
     option.series = data['series'];
+    option.series[0].itemStyle = itemStyle;
     require('echarts').init(document.getElementById('main')).setOption(option);
     //var myChart = ec.init(document.getElementById('main'));
     //myChart.setOption(option);

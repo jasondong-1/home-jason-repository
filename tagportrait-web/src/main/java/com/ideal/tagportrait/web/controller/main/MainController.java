@@ -2,7 +2,9 @@ package com.ideal.tagportrait.web.controller.main;
 
 import com.ideal.tagportrait.dto.BarChart;
 import com.ideal.tagportrait.dto.TreeNode;
+import com.ideal.tagportrait.entity.Area;
 import com.ideal.tagportrait.framework.web.json.JsonObject;
+import com.ideal.tagportrait.service.AreaService;
 import com.ideal.tagportrait.web.controller.BaseController;
 import com.ideal.tagportrait.service.MainService;
 import org.slf4j.Logger;
@@ -28,28 +30,29 @@ public class MainController extends BaseController {
 
     @Resource
     private MainService mainService;
+    @Resource
+    private AreaService areaService;
 
     @RequestMapping("index")
     public void index(Model model) {
-        /*List<PlatformForm> platformFormList = mainService.getPlatformInfo();
-        model.addAttribute("platforms",platformFormList);*/
-       // List<String> names = mainService.findStudentNames();
-        //model.addAttribute("hqlList", names);
+        List<Area> areaList = areaService.findAll();
+        model.addAttribute("areaList", areaList);
     }
 
 
     @RequestMapping("tag_tree")
     @ResponseBody
-    public List<TreeNode> showTagTree(String id) {
+    public List<TreeNode> showTagTree(String id, Long areaId) {
         logger.info(String.format("id:%s", id));
-        List<TreeNode> treeNodeList = mainService.getTagTree(id);
+        logger.info(String.format("areaId:%s", areaId));
+        List<TreeNode> treeNodeList = mainService.getTagTree(id, areaId);
         return treeNodeList;
     }
 
     @RequestMapping("show_tag_chart")
     @ResponseBody
-    public JsonObject showChildrenTagChart(String tagId) {
-        BarChart barChart = mainService.getChildrenTagData(tagId);
+    public JsonObject showChildrenTagChart(String tagId, Long areaId) {
+        BarChart barChart = mainService.getChildrenTagData(tagId, areaId);
         JsonObject jsonObject = JsonObject.success(barChart);
         return jsonObject;
     }

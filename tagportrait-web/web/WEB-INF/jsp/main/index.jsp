@@ -23,24 +23,42 @@
   <script src="${ctxRoot}/static/js/main.js"></script>
   <!-- echarts-->
   <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
+  <!-- chosen-->
+  <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
+  <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/chosen.css"/>
+  <style>
+    .chosen-container {
+      margin-right: 15px;
+    }
+    /*
+    .widget-box {
+      border: 0px;
+    }
+    */
+  </style>
   <script type="text/javascript">
-    require.config({
-      paths: {
-        echarts: '${ctxRoot}/static/framework/echarts'
-      }
-    });
-    require(
-        [
-          'echarts',
-          'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
-          'echarts/chart/bar'
-        ],
-        function (ec) {
-          var url = 'show_tag_chart.do'
-          var data = {tagId: 1};
-          X.post(url, data, treeClickCallback);
+    $(function() {
+      require.config({
+        paths: {
+          echarts: '${ctxRoot}/static/framework/echarts'
         }
-    );
+      });
+      require(
+              [
+                'echarts',
+                'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+                'echarts/chart/bar'
+              ],
+              function (ec) {
+                var url = 'show_tag_chart.do'
+                var data = {tagId: 1, areaId: 1};
+                X.post(url, data, treeClickCallback);
+              }
+      );
+      //var treeObj = $.fn.zTree.getZTreeObj("tagTree");
+      //treeObj.setting.async.otherParam = {areaId: 1};
+      $(".chosen-select").chosen();
+    });
   </script>
 </head>
 <body>
@@ -54,7 +72,24 @@
   <div class="row">
     <div class="col-xs-12">
       <!-- PAGE CONTENT BEGINS -->
-
+      <div class="widget-box">
+        <div class="widget-body">
+          <div class="widget-main">
+            <div>
+              城市：
+              <select class="width-15 chosen-select" id="form-field-select-1" style="width:200px"
+                      data-placeholder="Choose a Country...">
+                <c:forEach var="item" items="${areaList}">
+                  <option value="${item.id}">${item.name}</option>
+                </c:forEach>
+              </select>
+              <button class="btn btn-sm btn-info"
+                      style="width: 80px;float: right" id="btnSearch">查 询
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-sm-6">
           <div class="widget-box">

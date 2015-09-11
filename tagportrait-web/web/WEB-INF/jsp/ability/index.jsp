@@ -21,110 +21,90 @@
 
     <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
     <script type="text/javascript">
-        require.config({
-            paths: {
-                echarts: '${ctxRoot}/static/framework/echarts'
-            }
-        });
-        require(
-                [
-                    'echarts',
-                    'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
-                    'echarts/chart/bar'
-                ],
-                function (ec) {
-                    var myChart = ec.init(document.getElementById('main'));
+        $(function(){
+            require.config({
+                paths: {
+                    echarts: '${ctxRoot}/static/framework/echarts'
+                }
+            });
+            require(
+                    [
+                        'echarts',
+                        'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+                        'echarts/chart/bar'
+                    ],
+                    function (ec) {
+                        var myChart = ec.init(document.getElementById('main'));
 
-                    option = {
-                        title: {
-                            x: 'center',
-                            text: '兴趣标签热度',
-                            subtext: '一级标签热度分布柱状图'
-                        },
-                        tooltip: {
-                            trigger: 'item'
-                        },
-                        toolbox: {
-                            show: true,
-                            feature: {
-                                dataView: {show: true, readOnly: false},
-                                restore: {show: true},
-                                saveAsImage: {show: true}
-                            }
-                        },
-                        calculable: true,
-                        grid: {
-                            borderWidth: 0,
-                            y: 80,
-                            y2: 60
-                        },
-                        xAxis: [
-                            {
-                                type: 'category',
-                                show: false,
-                                data: ['工具/软件', '娱乐', '电商购物', '资讯', '社交/沟通', '房产', '生活服务', '汽车', '健康', '时尚', '财经']
-                            }
-                        ],
-                        yAxis: [
-                            {
-                                type: 'value',
-                                show: false
-                            }
-                        ],
-                        series: [
-                            {
-                                name: '兴趣标签热度',
-                                type: 'bar',
-                                itemStyle: {
-                                    normal: {
-                                        color: function(params) {
-                                            // build a color map as your need.
-                                            var colorList = [
-                                                '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-                                                '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-                                                '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-                                            ];
-                                            return colorList[params.dataIndex]
-                                        },
-                                        label: {
-                                            show: true,
-                                            position: 'top',
-                                            formatter: '{b}\n{c}'
-                                        }
-                                    }
-                                },
-                                data: [3,31,29,4,12,5,6,5,5,23,7],
-                                markPoint: {
-                                    tooltip: {
-                                        trigger: 'item',
-                                        backgroundColor: 'rgba(0,0,0,0)',
-                                        formatter: function(params){
-                                            return '<img src="'
-                                                    + params.data.symbol.replace('image://', '')
-                                                    + '"/>';
+                        option = {
+                            title: {
+                                x: 'center',
+                                text: '兴趣标签热度',
+                                subtext: '一级标签热度分布柱状图'
+                            },
+                            tooltip: {
+                                trigger: 'item'
+                            },
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    dataView: {show: true, readOnly: false},
+                                    restore: {show: true},
+                                    saveAsImage: {show: true}
+                                }
+                            },
+                            calculable: true,
+                            grid: {
+                                borderWidth: 0,
+                                y: 80,
+                                y2: 60
+                            },
+                            xAxis: [
+                                {
+                                    type: 'category',
+                                    show: false,
+                                    data: ['工具/软件', '娱乐', '电商购物', '资讯', '社交/沟通', '房产', '生活服务', '汽车', '健康', '时尚', '财经']
+                                }
+                            ],
+                            yAxis: [
+                                {
+                                    type: 'value',
+                                    show: false
+                                }
+                            ],
+                            series: [
+                                {
+                                    name: '兴趣标签热度',
+                                    type: 'bar',
+                                    itemStyle: {
+                                        normal: {
+                                            color: function(params) {
+                                                // build a color map as your need.
+                                                var colorList = [
+                                                    '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
+                                                    '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
+                                                    '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
+                                                ];
+                                                return colorList[params.dataIndex]
+                                            },
+                                            label: {
+                                                show: true,
+                                                position: 'top',
+                                                formatter: '{b}\n{c}'
+                                            }
                                         }
                                     },
-                                    data: [
-                                        {xAxis:0, y: 350, name:'工具/软件', symbolSize:20, symbol: 'image://../asset/ico/折线图.png'},
-                                        {xAxis:1, y: 350, name:'娱乐', symbolSize:20, symbol: 'image://../asset/ico/柱状图.png'},
-                                        {xAxis:2, y: 350, name:'电商购物', symbolSize:20, symbol: 'image://../asset/ico/散点图.png'},
-                                        {xAxis:3, y: 350, name:'资讯', symbolSize:20, symbol: 'image://../asset/ico/K线图.png'},
-                                        {xAxis:4, y: 350, name:'社交/沟通', symbolSize:20, symbol: 'image://../asset/ico/饼状图.png'},
-                                        {xAxis:5, y: 350, name:'房产', symbolSize:20, symbol: 'image://../asset/ico/雷达图.png'},
-                                        {xAxis:6, y: 350, name:'生活服务', symbolSize:20, symbol: 'image://../asset/ico/和弦图.png'},
-                                        {xAxis:7, y: 350, name:'汽车', symbolSize:20, symbol: 'image://../asset/ico/力导向图.png'},
-                                        {xAxis:8, y: 350, name:'健康', symbolSize:20, symbol: 'image://../asset/ico/地图.png'},
-                                        {xAxis:9, y: 350, name:'时尚', symbolSize:20, symbol: 'image://../asset/ico/仪表盘.png'},
-                                        {xAxis:10, y: 350, name:'财经', symbolSize:20, symbol: 'image://../asset/ico/漏斗图.png'}
-                                    ]
-                                }
-                            }
-                        ]
-                    };
+                                    data: [3,31,29,4,12,5,6,5,5,23,7]
 
-                    myChart.setOption(option);
-                }
-        );
+                                }
+                            ]
+                        };
+
+                        myChart.setOption(option);
+                    }
+            );
+
+        });
     </script>
 </head>
 <body>
