@@ -2,12 +2,17 @@ package com.ideal.tagportrait.service;
 
 import com.google.common.collect.Lists;
 
-import com.ideal.tagportrait.repository.StudentRepository;
+import com.ideal.tagportrait.entity.Tag;
+import com.ideal.tagportrait.repository.TagRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -19,5 +24,17 @@ import org.slf4j.LoggerFactory;
 @Service
 public class HotService {
     private Logger logger = LoggerFactory.getLogger(getClass());
+    @Resource
+    private TagRepository tagRepository;
+    public List<Tag> findFirstTags() {
+        return tagRepository.findByLevel(1L);
+    }
 
+    public List<Tag> findSecondTags(Long firstTagId) {
+        return tagRepository.findByLevelAndParentId(2L, firstTagId);
+    }
+
+    public List<Tag> findThirdTags(Long secondTagId) {
+        return tagRepository.findByLevelAndParentId(3L, secondTagId);
+    }
 }
