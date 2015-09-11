@@ -1,8 +1,7 @@
 package com.ideal.tagportrait.web.controller.main;
 
-import com.google.common.collect.Lists;
 import com.ideal.tagportrait.web.controller.BaseController;
-import com.ideal.tagportrait.common.service.MainService;
+import com.ideal.tagportrait.service.MainService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -10,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author yuanyuntao

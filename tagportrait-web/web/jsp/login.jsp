@@ -1,4 +1,4 @@
-<%@ page import="com.ideal.tagportrait.common.security.ShiroDbRealm" %>
+<%@ page import="com.ideal.tagportrait.security.ShiroDbRealm" %>
 <%@ page import="org.apache.shiro.SecurityUtils" %>
 <%@ page import="org.apache.shiro.subject.Subject" %>
 <%@ page import="org.apache.shiro.web.filter.authc.FormAuthenticationFilter" %>

@@ -19,7 +19,7 @@
 
     <!--framework 拦截器拦截所有请求-->
     <mvc:interceptors>
-        <bean class="com.ideal.tagportrait.web.controller.BeeUIInterceptors"/>
+        <bean class="com.ideal.tagportrait.web.BeeUIInterceptors"/>
         <bean class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
             <property name="entityManagerFactory" ref="entityManagerFactory"/>
         </bean>
@@ -32,6 +32,6 @@
     </bean>
 
     <!--所有异常的统一处理-->
-    <bean id="handlerExceptionResolver" class="com.ideal.tagportrait.web.controller.UIHandlerExceptionResolver"/>
+    <bean id="handlerExceptionResolver" class="com.ideal.tagportrait.web.UIHandlerExceptionResolver"/>
 
 </beans>

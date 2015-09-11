@@ -1,7 +1,7 @@
 package com.ideal.tagportrait.web.controller;
 
-import com.ideal.tagportrait.web.framework.web.message.WebMessage;
-import com.ideal.tagportrait.web.framework.web.message.WebMessageLevel;
+import com.ideal.tagportrait.framework.web.message.WebMessage;
+import com.ideal.tagportrait.framework.web.message.WebMessageLevel;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.ui.Model;

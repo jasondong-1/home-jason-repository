@@ -22,7 +22,7 @@
     <!--指定实现厂商专用特性-->
     <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="databasePlatform">
-            <bean factory-method="getDialect" class="com.ideal.tagportrait.common.framework.orm.AutoDialect">
+            <bean factory-method="getDialect" class="com.ideal.tagportrait.framework.orm.AutoDialect">
                 <constructor-arg ref="dataSource"/>
             </bean>
         </property>
@@ -32,7 +32,7 @@
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
-        <property name="packagesToScan" value="com.ideal.tagportrait.common.entity,com.ideal.tagportrait.common.framework.entity"/>
+        <property name="packagesToScan" value="com.ideal.tagportrait.entity,com.ideal.tagportrait.framework.entity"/>
         <property name="jpaProperties">
             <props>
                 <!--设置注释命名策略,命名规则 My_NAME->MyName-->
@@ -54,6 +54,6 @@
     <!--支持注解 @Required, @Autowired, @PostConstruc-->
     <context:annotation-config/>
     <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-    <context:component-scan base-package="com.ideal.tagportrait.common.repository"/>
+    <context:component-scan base-package="com.ideal.tagportrait.repository"/>
 
 </beans>

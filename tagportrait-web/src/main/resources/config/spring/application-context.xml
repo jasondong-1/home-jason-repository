@@ -22,7 +22,7 @@
     <context:component-scan base-package="com.ideal.coral.common.service"/>
     -->
     <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-    <context:component-scan base-package="com.ideal.tagportrait.common.service"/>
+    <context:component-scan base-package="com.ideal.tagportrait.service"/>
     <!--
     <context:component-scan base-package="com.ideal.coral.component"/>
     -->
@@ -33,6 +33,6 @@
 -->
 
     <!-- Spring Data Jpa配置 -->
-    <jpa:repositories base-package="com.ideal.tagportrait.common.repository"
-                      factory-class="com.ideal.tagportrait.common.framework.orm.FrameworkJpaRepositoryFactoryBean"/>
+    <jpa:repositories base-package="com.ideal.tagportrait.repository"
+                      factory-class="com.ideal.tagportrait.framework.orm.FrameworkJpaRepositoryFactoryBean"/>
 </beans>

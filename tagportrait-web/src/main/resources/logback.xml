@@ -25,7 +25,7 @@
     </logger>
     <logger name="org.hibernate.SQL" level="DEBUG">
     </logger>
-    <logger name="com.ideal.tagportrait.common.security.ShiroDbRealm" level="INFO"/>
+    <logger name="com.ideal.tagportrait.security.ShiroDbRealm" level="INFO"/>
     <!--
     <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
     <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="DEBUG"/>

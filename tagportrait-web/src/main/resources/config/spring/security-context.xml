@@ -12,13 +12,13 @@
 
     <description>Shiro安全配置</description>
     <!--认证授权类-->
-    <bean id="shiroDbRealm" class="com.ideal.tagportrait.common.security.ShiroDbRealm"/>
+    <bean id="shiroDbRealm" class="com.ideal.tagportrait.security.ShiroDbRealm"/>
 
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="shiroDbRealm"/>
     </bean>
 
-    <bean id="roleOrFilter" class="com.ideal.tagportrait.common.security.RolesOrAuthorizationFilter"/>
+    <bean id="roleOrFilter" class="com.ideal.tagportrait.security.RolesOrAuthorizationFilter"/>
 
     <bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter">
         <property name="redirectUrl" value="/jsp/login.jsp"/>
@@ -55,7 +55,7 @@
     <context:annotation-config/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <context:component-scan base-package="com.ideal.tagportrait.common.security.service"/>
-    <jpa:repositories base-package="com.ideal.tagportrait.common.security.repository"
-                      factory-class="com.ideal.tagportrait.common.framework.orm.FrameworkJpaRepositoryFactoryBean"/>
+    <context:component-scan base-package="com.ideal.tagportrait.security.service"/>
+    <jpa:repositories base-package="com.ideal.tagportrait.security.repository"
+                      factory-class="com.ideal.tagportrait.framework.orm.FrameworkJpaRepositoryFactoryBean"/>
 </beans>
