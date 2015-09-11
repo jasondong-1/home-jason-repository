@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-skins.css">
 
     <link rel="stylesheet" href="${ctxRoot}/static/css/css.css">
-    <script src="${ctxRoot}/static/ztree/js/jquery.ztree.core-3.5.min.js"></script>
-    <script src="${ctxRoot}/static/js/tree.js"></script>
+<%--    <script src="${ctxRoot}/static/ztree/js/jquery.ztree.core-3.5.min.js"></script>
+    <script src="${ctxRoot}/static/js/tree.js"></script>--%>
 
 
     <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
