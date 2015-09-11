@@ -28,13 +28,13 @@ public class MainService {
     @Resource
     private TagRepository tagRepository;
 
-    public List<TreeNode> getTagTree(String id) {
+    public List<TreeNode> getTagTree(String id, Long areaId) {
         List<TreeNode> treeNodeList = new ArrayList<TreeNode>();
         if (StringUtils.isBlank(id)) {
             id = "0";
         }
         logger.info(String.format("id:%s", id));
-        List list = tagRepository.getTagTreeByIdAndArea(id);
+        List list = tagRepository.getTagTreeByIdAndArea(id, areaId);
         for (int i=0; i<list.size(); i++) {
             Object[] objects = (Object[]) list.get(i);
 
@@ -49,10 +49,10 @@ public class MainService {
     }
 
 
-    public BarChart getChildrenTagData(String tagId) {
+    public BarChart getChildrenTagData(String tagId, Long areaId) {
         BarChart barChart = new BarChart();
         logger.debug("tagId:" + tagId);
-        List list = tagRepository.getChildrenTagData(tagId);
+        List list = tagRepository.getChildrenTagData(tagId, areaId);
         List<XAxis> xAxisList = new ArrayList<XAxis>();
         XAxis xAxis = new XAxis("category");
         List<String> xAxisData = new ArrayList<String>();
