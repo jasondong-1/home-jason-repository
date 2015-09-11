@@ -10,5 +10,6 @@
         <pattern>/main/*</pattern>
         <pattern>/monitor/*</pattern>
         <pattern>/console/*</pattern>
+        <pattern>/ability/*</pattern>
     </decorator>
 </decorators>

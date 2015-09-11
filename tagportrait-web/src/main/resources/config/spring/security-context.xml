@@ -48,6 +48,7 @@
                 /main/** = rolesor[admin]
                 /monitor/** = rolesor[admin]
                 /console/** = rolesor[admin]
+                /ability/** = rolesor[admin]
             </value>
         </property>
     </bean>
