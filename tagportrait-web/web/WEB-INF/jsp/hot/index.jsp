@@ -25,7 +25,8 @@
         .chosen-container {
             margin-right: 15px;
         }
-        .widget-box{
+
+        .widget-box {
             border: 0px;
         }
     </style>
@@ -51,39 +52,26 @@
                     <div class="col-xs-12">
                         <%--<form class="form-horizontal" role="form">--%>
                         <div class="row">
-                            <div class="col-xs-12 ">
+                            <div class="col-xs-10 col-xs-offset-1 ">
                                 <div class="widget-box">
                                     <div class="widget-body">
                                         <div class="widget-main">
                                             <div>
-                                                <%--<label for="form-field-select-3">Chosen</label>--%>
-                                                <%--<br/>--%>
-                                                <select class="width-15 chosen-select" id="form-field-select-3"
+                                                <select class="width-15 chosen-select" id="form-field-select-1"
+                                                        data-placeholder="Choose a Country..." onchange="onChange()">
+                                                    <option value="">请选择</option>
+                                                    <c:forEach var="item" items="${tagFirstList}">
+                                                        <option value="${item.id}">${item.name}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <select class="width-15 chosen-select" id="form-field-select-2"
                                                         data-placeholder="Choose a Country...">
-                                                    <%--<option value="">&nbsp;</option>--%>
-                                                    <option value="">一级标签</option>
-                                                    <option value="AL">Alabama</option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="AZ">Arizona</option>
+                                                    <option value="二级标签">请选择</option>
                                                 </select>
                                                 <select class="width-15 chosen-select" id="form-field-select-3"
                                                         data-placeholder="Choose a Country...">
                                                     <%--<option value="">&nbsp;</option>--%>
-                                                    <option value="">二级标签</option>
-                                                    <option value="AL">Alabama</option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="AZ">Arizona</option>
-                                                    <option value="AR">Arkansas</option>
-
-                                                </select>
-                                                <select class="width-15 chosen-select" id="form-field-select-3"
-                                                        data-placeholder="Choose a Country...">
-                                                    <%--<option value="">&nbsp;</option>--%>
-                                                    <option value="">三级标签</option>
-                                                    <option value="AL">Alabama</option>
-                                                    <option value="AK">Alaska</option>
-                                                    <option value="AZ">Arizona</option>
-                                                    <option value="AR">Arkansas</option>
+                                                    <option value="">请选择</option>
                                                 </select>
                                                 <button class="btn btn-sm btn-info"
                                                         style="width: 80px;float: right">查 询
@@ -93,12 +81,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12">
+                            <div class="col-xs-10 col-xs-offset-1">
                                 <div id="main"
-                                     style="width: 98%;height: 500px;border: 1px solid #d0d0d0;margin: 0px auto"></div>
+                                     style="width: 100%;height: 500px;border: 1px solid #d0d0d0;margin: 0px auto"></div>
                             </div>
-                            <div class="col-xs-12">
+                            <div class="col-xs-10 col-xs-offset-1">
                                 <h3 class="header smaller lighter blue"></h3>
+
                                 <div class="table-header">
                                     热度排行
                                 </div>
@@ -123,17 +112,17 @@
                                             <td>上海</td>
                                             <td>9.0</td>
                                         </tr>
-                                          <tr>
+                                        <tr>
                                             <td>3</td>
                                             <td>深圳</td>
                                             <td>8.0</td>
                                         </tr>
-                                          <tr>
+                                        <tr>
                                             <td>4</td>
                                             <td>广州</td>
                                             <td>7.0</td>
                                         </tr>
-                                          <tr>
+                                        <tr>
                                             <td>5</td>
                                             <td>南京</td>
                                             <td>6.0</td>
@@ -152,6 +141,9 @@
         </div>
     </div>
 </div>
+<div>
+    sjkdhskeassk
+</div>
 <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
 <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
 <script src="${ctxRoot}/static/framework/bootstrap/assets/js/jquery.dataTables.js"></script>
@@ -159,14 +151,38 @@
 
 <script type="text/javascript">
     jQuery(function ($) {
-        $(".chosen-select").chosen();
-        $('#chosen-multiple-style').on('click', function (e) {
-            var target = $(e.target).find('input[type=radio]');
-            var which = parseInt(target.val());
-            if (which == 2) $('#form-field-select-4').addClass('tag-input-style');
-            else $('#form-field-select-4').removeClass('tag-input-style');
-        });
+//        $(".chosen-select").chosen();
+//        $('#chosen-multiple-style').on('click', function (e) {
+//            var target = $(e.target).find('input[type=radio]');
+//            var which = parseInt(target.val());
+//            if (which == 2) $('#form-field-select-4').addClass('tag-input-style');
+//            else $('#form-field-select-4').removeClass('tag-input-style');
+//        });
     });
+    function onChange() {//alert($("#form-field-select-1").val())
+        var url='index_second.do'
+        var data={id: $("#form-field-select-1").val()};
+        X.post(url, data, callback)
+    }
+
+    function callback(r) {
+        var type = r['type'];
+        var data = r['data'];
+        var success = r['success'];
+        //require('echarts').init(document.getElementById('form-field-select-2')).setOption(option);
+        if(success){
+            alert(JSON.stringify(r));
+            //$("#form-field-select-2").options.length=1;
+            for(var i=0;i<data.length;i++){
+                var item = data[i];
+                var option = "<option value='" + item.id +"'>" + item.name + "</option>";
+                $("#form-field-select-2").append(option);
+
+                //jQuery("<option></option>").attr({val:data.id,text:data.name}).appendTo("#form-field-select-2");
+            }
+            $("#form-field-select-2").chosen();
+        }
+    }
 </script>
 
 <script type="text/javascript">
@@ -184,49 +200,49 @@
             function (ec) {
                 var myChart = ec.init(document.getElementById('main'));
                 option = {
-                    title : {
+                    title: {
                         text: '热度值排行',
                         subtext: '纯属虚构'
                     },
-                    tooltip : {
+                    tooltip: {
                         trigger: 'axis'
                     },
                     toolbox: {
-                        show : true,
-                        feature : {
-                            mark : {show: true},
-                            dataView : {show: true, readOnly: false},
-                            magicType : {show: true, type: ['line', 'bar']},
-                            restore : {show: true},
-                            saveAsImage : {show: true}
+                        show: true,
+                        feature: {
+                            mark: {show: true},
+                            dataView: {show: true, readOnly: false},
+                            magicType: {show: true, type: ['line', 'bar']},
+                            restore: {show: true},
+                            saveAsImage: {show: true}
                         }
                     },
-                    calculable : true,
-                    xAxis : [
+                    calculable: true,
+                    xAxis: [
                         {
-                            type : 'category',
-                            data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+                            type: 'category',
+                            data: ['北京', '广州', '上海', '重庆', '杭州']
                         }
                     ],
-                    yAxis : [
+                    yAxis: [
                         {
-                            type : 'value'
+                            type: 'value'
                         }
                     ],
-                    series : [
+                    series: [
                         {
-                            name:'蒸发量',
-                            type:'bar',
-                            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
-                            markPoint : {
-                                data : [
-                                    {type : 'max', name: '最大值'},
-                                    {type : 'min', name: '最小值'}
+                            name: '热度值',
+                            type: 'bar',
+                            data: [10.0, 8.0, 9.0, 7.0, 6.0],
+                            markPoint: {
+                                data: [
+                                    {type: 'max', name: '最大值'},
+                                    {type: 'min', name: '最小值'}
                                 ]
                             },
-                            markLine : {
-                                data : [
-                                    {type : 'average', name: '平均值'}
+                            markLine: {
+                                data: [
+                                    {type: 'average', name: '平均值'}
                                 ]
                             }
                         },
