@@ -58,6 +58,13 @@
       //var treeObj = $.fn.zTree.getZTreeObj("tagTree");
       //treeObj.setting.async.otherParam = {areaId: 1};
       $(".chosen-select").chosen();
+
+      $("#btnSave").click(function(){
+          var url = 'save_tag_description.do';
+          var data = {tagId: $('#current-tag-id').val(),description: $('#tag-description').val()};
+          X.post(url, data, '');
+
+      });
     });
   </script>
 </head>
@@ -131,15 +138,6 @@
 
       <script type="text/javascript">
         var $assets = "assets";//this will be used in fuelux.tree-sampledata.js
-        $(document.ready(function(){
-            function saveTagDescription(){
-                var url = 'save_tag_description.do'
-                var data = {tagId: 1,description: 2};
-                X.post(url, data, '');
-            }
-
-        }));
-
       </script>
 
       <!-- PAGE CONTENT ENDS -->
@@ -160,8 +158,7 @@
                     <div class="md-editor" id="1441964727113"><textarea id="tag-description" class="span12 md-input" name="content" data-provide="markdown" rows="10" style="resize: none;">请选择标签</textarea></div>
                 </div>
                 <div class="btn-group pull-right">
-                    <button class="btn btn-sm btn-purple" onclick="saveTagDescription(this)"
-                            url="${ctx}/main/save_tag_description.do">
+                    <button class="btn btn-sm btn-purple" id="btnSave">
                         <i class="icon-save bigger-125"></i>
                         Save
                     </button>

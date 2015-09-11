@@ -4,7 +4,9 @@ import com.ideal.tagportrait.dto.BarChart;
 import com.ideal.tagportrait.dto.TreeNode;
 import com.ideal.tagportrait.entity.Tag;
 import com.ideal.tagportrait.entity.Area;
+import com.ideal.tagportrait.framework.web.json.JsonAlert;
 import com.ideal.tagportrait.framework.web.json.JsonObject;
+import com.ideal.tagportrait.framework.web.message.WebMessageLevel;
 import com.ideal.tagportrait.service.AreaService;
 import com.ideal.tagportrait.web.controller.BaseController;
 import com.ideal.tagportrait.service.MainService;
@@ -59,8 +61,11 @@ public class MainController extends BaseController {
     }
 
     @RequestMapping("save_tag_description")
-    public void saveTagDescription(String tagId, String description) {
+    @ResponseBody
+    public JsonObject saveTagDescription(String tagId, String description) {
+        JsonObject jsonObject = JsonObject.alert("保存成功", WebMessageLevel.SUCCESS);
         mainService.saveTagDescription(tagId, description);
+        return jsonObject;
     }
 
     @RequestMapping("query_tag_description")
