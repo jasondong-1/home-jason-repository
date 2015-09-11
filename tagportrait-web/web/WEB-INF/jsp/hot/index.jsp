@@ -59,14 +59,14 @@
                                         <div class="widget-main">
                                             <div>
                                                 <select class="width-15 chosen-select" id="form-field-select-1"
-                                                        data-placeholder="Choose a Country..." onchange="onChange()">
+                                                        data-placeholder="Choose a Country..." onchange="onFirstChange()">
                                                     <option value="">请选择</option>
                                                     <c:forEach var="item" items="${tagFirstList}">
                                                         <option value="${item.id}">${item.name}</option>
                                                     </c:forEach>
                                                 </select>
                                                 <select class="width-15 chosen-select" id="form-field-select-2"
-                                                        data-placeholder="Choose a Country...">
+                                                        data-placeholder="Choose a Country..." onchange="onSecondChange()">
                                                     <option value="二级标签">请选择</option>
                                                 </select>
                                                 <select class="width-15 chosen-select" id="form-field-select-3"
@@ -142,52 +142,11 @@
         </div>
     </div>
 </div>
-<div>
-    sjkdhskeassk
-</div>
 <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
 <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
 <script src="${ctxRoot}/static/framework/bootstrap/assets/js/jquery.dataTables.js"></script>
 <script src="${ctxRoot}/static/framework/bootstrap/assets/js/jquery.dataTables.bootstrap.js"></script>
-
-<script type="text/javascript">
-    jQuery(function ($) {
-        $(".chosen-select").chosen();
-//        $('#chosen-multiple-style').on('click', function (e) {
-//            var target = $(e.target).find('input[type=radio]');
-//            var which = parseInt(target.val());
-//            if (which == 2) $('#form-field-select-4').addClass('tag-input-style');
-//            else $('#form-field-select-4').removeClass('tag-input-style');
-//        });
-    });
-    function onChange() {//alert($("#form-field-select-1").val())
-        var url='index_second.do'
-        var data={id: $("#form-field-select-1").val()};
-        X.post(url, data, callback)
-    }
-
-    function callback(r) {
-        var type = r['type'];
-        var data = r['data'];
-        var success = r['success'];
-        //require('echarts').init(document.getElementById('form-field-select-2')).setOption(option);
-        if(success){
-            alert(JSON.stringify(r));
-            $("#form-field-select-2").empty();
-            $("#form-field-select-2").append("<option value=\"0\" selected=\"selected\">全部</option>");
-            for(var i=0;i<data.length;i++){
-                var item = data[i];
-                var option = "<option value='" + item.id +"'>" + item.name + "</option>";
-                $("#form-field-select-2").append(option);
-
-                //jQuery("<option></option>").attr({val:data.id,text:data.name}).appendTo("#form-field-select-2");
-            }
-            $("#form-field-select-2").trigger("chosen:updated");
-            //$("#form-field-select-2").chosen();
-        }
-    }
-</script>
-
+<script src="${ctxRoot}/static/js/hot.js"></script>
 <script type="text/javascript">
     require.config({
         paths: {
@@ -271,44 +230,6 @@
                 myChart.setOption(option);
             }
     );
-</script>
-
-<script type="text/javascript">
-    jQuery(function ($) {
-        var oTable1 = $('#sample-table-2').dataTable({
-            "aoColumns": [
-                {"bSortable": false},
-                null, null, null, null, null,
-                {"bSortable": false}
-            ]
-        });
-
-
-        $('table th input:checkbox').on('click', function () {
-            var that = this;
-            $(this).closest('table').find('tr > td:first-child input:checkbox')
-                    .each(function () {
-                        this.checked = that.checked;
-                        $(this).closest('tr').toggleClass('selected');
-                    });
-
-        });
-
-
-        $('[data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-        function tooltip_placement(context, source) {
-            var $source = $(source);
-            var $parent = $source.closest('table')
-            var off1 = $parent.offset();
-            var w1 = $parent.width();
-
-            var off2 = $source.offset();
-            var w2 = $source.width();
-
-            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
-            return 'left';
-        }
-    })
 </script>
 </body>
 </html>

@@ -41,4 +41,13 @@ public class HotController extends BaseController {
         JsonObject jsonObject = JsonObject.success(secondTagList);
         return jsonObject;
     }
+
+    @RequestMapping("index_third")
+    @ResponseBody
+    public JsonObject third(String id) {
+        logger.debug(String.format("id:%s",id));
+        List<Tag> thirdTagList = hotService.findThirdTags(Long.parseLong(id));
+        JsonObject jsonObject = JsonObject.success(thirdTagList);
+        return jsonObject;
+    }
 }
