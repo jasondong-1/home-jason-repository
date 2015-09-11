@@ -2,6 +2,7 @@ package com.ideal.tagportrait.web.controller.main;
 
 import com.ideal.tagportrait.dto.BarChart;
 import com.ideal.tagportrait.dto.TreeNode;
+import com.ideal.tagportrait.entity.Tag;
 import com.ideal.tagportrait.framework.web.json.JsonObject;
 import com.ideal.tagportrait.web.controller.BaseController;
 import com.ideal.tagportrait.service.MainService;
@@ -51,6 +52,19 @@ public class MainController extends BaseController {
     public JsonObject showChildrenTagChart(String tagId) {
         BarChart barChart = mainService.getChildrenTagData(tagId);
         JsonObject jsonObject = JsonObject.success(barChart);
+        return jsonObject;
+    }
+
+    @RequestMapping("save_tag_description")
+    public void saveTagDescription(String tagId, String description) {
+        mainService.saveTagDescription(tagId, description);
+    }
+
+    @RequestMapping("query_tag_description")
+    @ResponseBody
+    public JsonObject queryTagDescription(String tagId) {
+        Tag tag = mainService.getTag(tagId);
+        JsonObject jsonObject = JsonObject.success(tag);
         return jsonObject;
     }
 

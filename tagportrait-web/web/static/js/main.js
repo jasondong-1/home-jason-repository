@@ -30,6 +30,9 @@ function onClick(event, treeId, treeNode) {
     var url = 'show_tag_chart.do'
     var data = {tagId: treeNode.id};
     X.post(url, data, treeClickCallback);
+
+    var url2='query_tag_description.do';
+    X.post(url2, data, descriptionCallback);
 }
 
 function treeClickCallback(r) {
@@ -40,6 +43,15 @@ function treeClickCallback(r) {
     option.xAxis = data['xAxis'];
     option.series = data['series'];
     require('echarts').init(document.getElementById('main')).setOption(option);
-    //var myChart = ec.init(document.getElementById('main'));
-    //myChart.setOption(option);
+}
+
+function descriptionCallback(r) {
+    //alert(JSON.stringify(r));
+    var type = r['type'];
+    var data = r['data'];
+    var success = r['success'];
+    document.getElementById('tag-description').innerHTML = data['description'];
+    document.getElementById('current-tag-name').innerHTML = data['name'];
+    document.getElementById('current-tag-id').setAttribute("value",data['id']);
+    //alert(document.getElementById('current-tag-id').getAttribute("value"));
 }

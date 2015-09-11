@@ -4,6 +4,7 @@ import com.ideal.tagportrait.dto.BarChart;
 import com.ideal.tagportrait.dto.Series;
 import com.ideal.tagportrait.dto.TreeNode;
 import com.ideal.tagportrait.dto.XAxis;
+import com.ideal.tagportrait.entity.Tag;
 import com.ideal.tagportrait.repository.TagRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -72,5 +73,15 @@ public class MainService {
         seriesList.add(series);
         barChart.setSeries(seriesList);
         return barChart;
+    }
+
+    public Tag getTag(String tagId) {
+        return tagRepository.findOne(Long.parseLong(tagId));
+    }
+
+    public void saveTagDescription(String tagId, String description) {
+        Tag tag = tagRepository.findOne(Long.parseLong(tagId));
+        tag.setDescription(description);
+        tagRepository.save(tag);
     }
 }

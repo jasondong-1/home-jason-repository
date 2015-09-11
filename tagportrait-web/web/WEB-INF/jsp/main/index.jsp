@@ -96,11 +96,49 @@
 
       <script type="text/javascript">
         var $assets = "assets";//this will be used in fuelux.tree-sampledata.js
+        $(document.ready(function(){
+            function saveTagDescription(){
+                var url = 'save_tag_description.do'
+                var data = {tagId: 1,description: 2};
+                X.post(url, data, '');
+            }
+
+        }));
+
       </script>
 
       <!-- PAGE CONTENT ENDS -->
     </div><!-- /.col -->
   </div><!-- /.row -->
+
+
+
+
+    <div class="col-sm-12">
+        <h4 class="header green">标签描述</h4>
+
+        <div class="widget-box">
+            <div class="widget-header widget-header-small header-color-blue"><h4 class="lighter smaller">当前标签：<span id="current-tag-name"></span></h4></div>
+            <input type="hidden" id="current-tag-id" value="">
+            <div class="widget-body">
+                <div class="widget-main no-padding">
+                    <div class="md-editor" id="1441964727113"><textarea id="tag-description" class="span12 md-input" name="content" data-provide="markdown" rows="10" style="resize: none;">请选择标签</textarea></div>
+                </div>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-sm btn-purple" onclick="saveTagDescription(this)"
+                            url="${ctx}/main/save_tag_description.do">
+                        <i class="icon-save bigger-125"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>
+
+
 </body>
 </html>
