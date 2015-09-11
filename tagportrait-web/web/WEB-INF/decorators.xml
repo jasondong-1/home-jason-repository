@@ -9,7 +9,7 @@
     <decorator name="default" page="layout.jsp">
         <pattern>/main/*</pattern>
         <pattern>/hot/*</pattern>
-        <pattern>/console/*</pattern>
         <pattern>/ability/*</pattern>
+        <pattern>/dist/*</pattern>
     </decorator>
 </decorators>
