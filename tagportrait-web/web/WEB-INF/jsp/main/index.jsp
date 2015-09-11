@@ -13,11 +13,15 @@
   <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace.css">
   <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-rtl.css">
   <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-skins.css">
-
+  <!-- custom-->
   <link rel="stylesheet" href="${ctxRoot}/static/css/css.css">
+  <!-- ztree -->
+  <link href="${ctxRoot}/static/ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css"/>
   <script src="${ctxRoot}/static/ztree/js/jquery.ztree.core-3.5.min.js"></script>
+  <!-- custom js-->
   <script src="${ctxRoot}/static/js/tree.js"></script>
-
+  <script src="${ctxRoot}/static/js/main.js"></script>
+  <!-- echarts-->
   <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
   <script type="text/javascript">
     require.config({
@@ -32,76 +36,9 @@
           'echarts/chart/bar'
         ],
         function (ec) {
-          var myChart = ec.init(document.getElementById('main'));
-          var option = {
-            title : {
-              text: '某地区蒸发量和降水量',
-              subtext: '纯属虚构'
-            },
-            tooltip : {
-              trigger: 'axis'
-            },
-            legend: {
-              data:['蒸发量','降水量']
-            },
-            toolbox: {
-              show : true,
-              feature : {
-                mark : {show: true},
-                dataView : {show: true, readOnly: false},
-                magicType : {show: true, type: ['line', 'bar']},
-                restore : {show: true},
-                saveAsImage : {show: true}
-              }
-            },
-            calculable : true,
-            xAxis : [
-              {
-                type : 'category',
-                data : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
-              }
-            ],
-            yAxis : [
-              {
-                type : 'value'
-              }
-            ],
-            series : [
-              {
-                name:'蒸发量',
-                type:'bar',
-                data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
-                markPoint : {
-                  data : [
-                    {type : 'max', name: '最大值'},
-                    {type : 'min', name: '最小值'}
-                  ]
-                },
-                markLine : {
-                  data : [
-                    {type : 'average', name: '平均值'}
-                  ]
-                }
-              },
-              {
-                name:'降水量',
-                type:'bar',
-                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
-                markPoint : {
-                  data : [
-                    {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
-                    {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
-                  ]
-                },
-                markLine : {
-                  data : [
-                    {type : 'average', name : '平均值'}
-                  ]
-                }
-              }
-            ]
-          };
-          myChart.setOption(option);
+          var url = 'show_tag_chart.do'
+          var data = {tagId: 1};
+          X.post(url, data, treeClickCallback);
         }
     );
   </script>
@@ -122,14 +59,14 @@
         <div class="col-sm-6">
           <div class="widget-box">
             <div class="widget-header header-color-blue2">
-              <h4 class="lighter smaller">Choose Categories</h4>
+              <h4 class="lighter smaller">标签体系</h4>
             </div>
 
             <div class="widget-body">
               <div class="widget-main padding-8">
                 <div class="mainzuo" style="overflow:auto">
-                  <h5>查询条件</h5>
-                  <ul id="tagTree" class="ztree"></ul>
+                  <!--<h5>查询条件</h5>-->
+                  <ul id="tagTree" class="ztree" style="height:400px;"></ul>
                 </div>
                 <!--
                 <div id="tree1" class="tree tree-selectable"><div class="tree-folder" style="display:none;">				<div class="tree-folder-header">					<i class="icon-plus"></i>					<div class="tree-folder-name"></div>				</div>				<div class="tree-folder-content"></div>				<div class="tree-loader" style="display: none;"></div>			</div>			<div class="tree-item" style="display:none;">				<i class="icon-remove"></i>				<div class="tree-item-name"></div>			</div><div class="tree-folder" style="display: block;">				<div class="tree-folder-header">					<i class="icon-plus"></i>					<div class="tree-folder-name">For Sale</div>				</div>				<div class="tree-folder-content" style="display: none;"><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Appliances</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Arts &amp; Crafts</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Clothing</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Computers</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Jewelry</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Office &amp; Business</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Sports &amp; Fitness</div>			</div></div>				<div class="tree-loader" style="display: none;"><div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div></div>			</div><div class="tree-folder" style="display: block;">				<div class="tree-folder-header">					<i class="icon-minus"></i>					<div class="tree-folder-name">Vehicles</div>				</div>				<div class="tree-folder-content" style="display: block;"><div class="tree-folder" style="display: block;">				<div class="tree-folder-header">					<i class="icon-plus"></i>					<div class="tree-folder-name">Cars</div>				</div>				<div class="tree-folder-content"></div>				<div class="tree-loader" style="display: none;"><div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div></div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Motorcycles</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Boats</div>			</div></div>				<div class="tree-loader" style="display: none;"><div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div></div>			</div><div class="tree-folder" style="display: block;">				<div class="tree-folder-header">					<i class="icon-plus"></i>					<div class="tree-folder-name">Rentals</div>				</div>				<div class="tree-folder-content"></div>				<div class="tree-loader" style="display: none;"><div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div></div>			</div><div class="tree-folder" style="display: block;">				<div class="tree-folder-header">					<i class="icon-plus"></i>					<div class="tree-folder-name">Real Estate</div>				</div>				<div class="tree-folder-content"></div>				<div class="tree-loader" style="display: none;"><div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div></div>			</div><div class="tree-folder" style="display: block;">				<div class="tree-folder-header">					<i class="icon-plus"></i>					<div class="tree-folder-name">Pets</div>				</div>				<div class="tree-folder-content"></div>				<div class="tree-loader" style="display: none;"><div class="tree-loading"><i class="icon-refresh icon-spin blue"></i></div></div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Tickets</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Services</div>			</div><div class="tree-item" style="display: block;">				<i class="icon-remove"></i>				<div class="tree-item-name">Personals</div>			</div></div>

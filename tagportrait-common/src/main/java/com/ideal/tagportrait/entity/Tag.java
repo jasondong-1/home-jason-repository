@@ -16,6 +16,7 @@ public class Tag extends AutoModel {
     private Long level;
     private Long parentId;
     private String description;
+    private Boolean leafFlag;
 
     public String getName() {
         return name;
@@ -47,5 +48,13 @@ public class Tag extends AutoModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Boolean getLeafFlag() {
+        return leafFlag;
+    }
+
+    public void setLeafFlag(Boolean leafFlag) {
+        this.leafFlag = leafFlag;
     }
 }
