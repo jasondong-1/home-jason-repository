@@ -76,8 +76,8 @@ function descriptionCallback(r) {
     var type = r['type'];
     var data = r['data'];
     var success = r['success'];
-    document.getElementById('tag-description').innerHTML = data['description'];
-    document.getElementById('current-tag-name').innerHTML = data['name'];
-    document.getElementById('current-tag-id').setAttribute("value",data['id']);
-    //alert(document.getElementById('current-tag-id').getAttribute("value"));
+    $('#tag-description').val(data['description']);
+    $('#current-tag-name').html(data['name']);
+    $('#current-tag-id').val(data['id']);
+    //alert(document.getElementById('tag-description').val());
 }
