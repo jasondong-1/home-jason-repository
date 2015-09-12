@@ -47,13 +47,15 @@ public class HotService {
     public List<Tag> findThirdTags(Long secondTagId) {
         return tagRepository.findByLevelAndParentId(3L, secondTagId);
     }
-    public List<Analysis> findHeartValue(Long id) {
-        return analysisRepository.getAnalysisHeatValueByTagId(id);
+
+    public List<Analysis> findHeartValueAndCity(Long id,String city) {
+        return analysisRepository.getAnalysisHeatValueByTagIdAndCity(id,city);
     }
-    public BarChart getChildrenTagData(Long id) {
+
+    public BarChart getHeatValueCityTagData(Long id,String city) {
         BarChart barChart = new BarChart();
-        logger.debug("tagId:" + id);
-        List list = analysisRepository.getAnalysisHeatValueByTopTagId(id);
+        logger.debug("tagId:" + id+"cityName:"+city);
+        List list = analysisRepository.getAnalysisHeatValueTopByTagIdAndCity(id, city);
         List<XAxis> xAxisList = new ArrayList<XAxis>();
         XAxis xAxis = new XAxis("category");
         List<String> xAxisData = new ArrayList<String>();
@@ -75,7 +77,6 @@ public class HotService {
         barChart.setSeries(seriesList);
         return barChart;
     }
-
     private String convert(String text) {
         try {
             return new String(text.getBytes("GBK"), "UTF-8");

@@ -37,13 +37,13 @@ public class DistService {
         for (int i=0; i<list.size(); i++) {
             Object[] objects = (Object[]) list.get(i);
             String areaName = objects[0].toString();
-            String area = convert("全国");
+            String area = "全国";
             if (!StringUtils.equals(area, areaName)) {
                 MapData mapData = new MapData(areaName, Long.valueOf(objects[2].toString()), Long.valueOf(objects[3].toString()));
                 mapDataList.add(mapData);
             } else {
                 String tagName = objects[1].toString();
-                mapSeries = new MapSeries(convert("标签 ") + tagName + convert(" 数量 ") + Long.valueOf(objects[2].toString()), "map", "china");
+                mapSeries = new MapSeries("标签 " + tagName + " 数量 " + Long.valueOf(objects[2].toString()), "map", "china");
 
             }
         }

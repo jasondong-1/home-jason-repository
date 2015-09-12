@@ -53,13 +53,6 @@
                 minWidth: 136
             });
         });
-
-        function getSelectedYear() {
-            var year = $("#cmbCity").multiselect("getChecked").map(function () {
-                return this.value;
-            }).get();
-            return year.toString();
-        }
     </script>
 </head>
 <body>
@@ -181,14 +174,17 @@
                     'echarts/chart/bar'
                 ],
                 function (ec) {
-                    var url = 'show_tag_chart.do'
-                    var data = {id: 1};
+                    var url = 'show_tag_chart_city.do'
+                    var data = {id: 1,city:'2,3,4'};
                     X.post(url, data, heatValueCallback);
-                    var url2= 'index_heartValue.do'
-                    var data2 = {id: 1,name:"文化教育"};
-                    X.post(url2, data2, callback_firstTable);
+                    var url2= 'index_heartValueAndCity.do'
+                    X.post(url2, data, callback_firstTable);
+
                 }
         );
+
+        $("#cmbCity").val([2,3,4]);
+        $("#cmbCity").multiselect('refresh');
     })
 </script>
 </body>

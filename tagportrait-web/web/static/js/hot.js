@@ -117,21 +117,36 @@ function callback_second(r) {
 }
 //查询按钮点击事件
 function onClick() {
-    var url2= 'show_tag_chart.do';
-    var url1 = 'index_heartValue.do'
-    var data1 = {id: $("#form-field-select-1").val()};
-    var data2 = {id: $("#form-field-select-2").val()};
-    var data3 = {id: $("#form-field-select-3").val()};
+    var city=getSelectedCity();
+    var id1=$("#form-field-select-1").val();
+    var id2=$("#form-field-select-2").val();
+    var id3=$("#form-field-select-3").val();
+    alert(city);
+    //var url4='index_heartValueAndCity.do';
+    var url2= 'show_tag_chart_city.do';
+    var url1 = 'index_heartValueAndCity.do'
+    //var data1 = {id: $("#form-field-select-1").val()};
+    //var data2 = {id: $("#form-field-select-2").val()};
+    //var data3 = {id: $("#form-field-select-3").val()};
 
     if(0==$("#form-field-select-2").val()&&0==$("#form-field-select-3").val()){
-       var data=data1;
+       var id=id1;
     }else if(0==$("#form-field-select-3").val()){
-       var data=data2;
+       var id=id2;
     }else{
-       var data=data3
+       var id=id3;
     }
+    var data={id:id,city:city}
     X.post(url1, data, callback_firstTable);
     X.post(url2, data, heatValueCallback);
+    //X.post(url4, data4, heatValueCallback);
+    //X.post(url4, data4, callback_firstTable);
+}
+function getSelectedCity() {
+    var city = $("#cmbCity").multiselect("getChecked").map(function () {
+        return this.value;
+    }).get();
+    return city.toString();
 }
 function heatValueCallback(r) {
     //alert(JSON.stringify(r));

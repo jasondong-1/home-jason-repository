@@ -58,19 +58,33 @@ public class HotController extends BaseController {
         JsonObject jsonObject = JsonObject.success(thirdTagList);
         return jsonObject;
     }
-    @RequestMapping("index_heartValue")
+//    @RequestMapping("index_heartValue")
+//    @ResponseBody
+//    public JsonObject heartValue(String id) {
+//        logger.debug(String.format("id:%s",id));
+//        List<Analysis> heartValue = hotService.findHeartValue(Long.parseLong(id));
+//        JsonObject jsonObject = JsonObject.success(heartValue);
+//        return jsonObject;
+//    }
+    @RequestMapping("index_heartValueAndCity")
     @ResponseBody
-    public JsonObject heartValue(String id) {
-        logger.debug(String.format("id:%s",id));
-        List<Analysis> heartValue = hotService.findHeartValue(Long.parseLong(id));
+    public JsonObject heartValueAndCity(String id,String city) {
+        logger.debug(String.format("id:%s",id)+"city:"+city);
+        List<Analysis> heartValue = hotService.findHeartValueAndCity(Long.parseLong(id), city);
         JsonObject jsonObject = JsonObject.success(heartValue);
         return jsonObject;
     }
-
-    @RequestMapping("show_tag_chart")
+//    @RequestMapping("show_tag_chart")
+//    @ResponseBody
+//    public JsonObject showChildrenTagChart(Long id) {
+//        BarChart barChart = hotService.getHeatValueTagData(id);
+//        JsonObject jsonObject = JsonObject.success(barChart);
+//        return jsonObject;
+//    }
+    @RequestMapping("show_tag_chart_city")
     @ResponseBody
-    public JsonObject showChildrenTagChart(Long id) {
-        BarChart barChart = hotService.getChildrenTagData(id);
+    public JsonObject showHeatValueByCityTagChart(Long id,String city) {
+        BarChart barChart = hotService.getHeatValueCityTagData(id, city);
         JsonObject jsonObject = JsonObject.success(barChart);
         return jsonObject;
     }
