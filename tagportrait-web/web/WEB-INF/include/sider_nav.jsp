@@ -7,7 +7,6 @@
         </a>
         <b class="arrow"></b>
     </li>
-
     <c:forEach var="item" items="${menuList}">
         <c:if test="${empty item.subMenu}">
             <li <c:if test="${item.isActive == true}">class="active"</c:if>>

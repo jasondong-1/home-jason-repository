@@ -1,19 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/WEB-INF/include/taglib.jsp" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
     <title>精准营销--用户画像系统</title>
-
     <meta name="description" content="overview &amp; stats"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-
     <!--js css-->
     <%@include file="/WEB-INF/include/meta.jsp" %>
-
     <sitemesh:head/>
 </head>
 
@@ -26,7 +22,6 @@
         } catch (e) {
         }
     </script>
-
     <div class="navbar-container" id="navbar-container">
         <!-- #section:basics/sidebar.mobile.toggle -->
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -49,7 +44,7 @@
 </div>
 
 <div class="main-container" id="main-container">
-
+    <%--<div id="sidebar" class="sidebar h-sidebar navbar-collapse collapse ">--%>
     <div id="sidebar" class="sidebar responsive">
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">

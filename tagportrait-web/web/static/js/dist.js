@@ -131,7 +131,6 @@ function callback_second(r) {
     var success = r['success'];
     if(success){
         var  second=$("#form-field-select-2").val();
-        alert(second);
         if("无"==second){
             //alert(dsds+second);
             $("#form-field-select-3").empty();

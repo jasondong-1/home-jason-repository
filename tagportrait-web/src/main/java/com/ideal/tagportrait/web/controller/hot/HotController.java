@@ -1,7 +1,11 @@
 package com.ideal.tagportrait.web.controller.hot;
 
+import com.ideal.tagportrait.dto.BarChart;
+import com.ideal.tagportrait.entity.Analysis;
+import com.ideal.tagportrait.entity.Area;
 import com.ideal.tagportrait.entity.Tag;
 import com.ideal.tagportrait.framework.web.json.JsonObject;
+import com.ideal.tagportrait.service.AreaService;
 import com.ideal.tagportrait.service.HotService;
 import com.ideal.tagportrait.web.controller.BaseController;
 import org.slf4j.Logger;
@@ -26,17 +30,21 @@ public class HotController extends BaseController {
 
     @Resource
     private HotService hotService;
+    @Resource
+    private AreaService areaService;
 
     @RequestMapping("index")
     public void index(Model model) {
         List<Tag> names = hotService.findFirstTags();
         model.addAttribute("tagFirstList", names);
+        List<Area> names1 = areaService.findAll();
+        model.addAttribute("areaList", names1);
     }
 
     @RequestMapping("index_second")
     @ResponseBody
     public JsonObject second(String id) {
-        logger.debug(String.format("id:%s",id));
+        logger.debug(String.format("id:%s", id));
         List<Tag> secondTagList = hotService.findSecondTags(Long.parseLong(id));
         JsonObject jsonObject = JsonObject.success(secondTagList);
         return jsonObject;
@@ -48,6 +56,22 @@ public class HotController extends BaseController {
         logger.debug(String.format("id:%s",id));
         List<Tag> thirdTagList = hotService.findThirdTags(Long.parseLong(id));
         JsonObject jsonObject = JsonObject.success(thirdTagList);
+        return jsonObject;
+    }
+    @RequestMapping("index_heartValue")
+    @ResponseBody
+    public JsonObject heartValue(String id) {
+        logger.debug(String.format("id:%s",id));
+        List<Analysis> heartValue = hotService.findHeartValue(Long.parseLong(id));
+        JsonObject jsonObject = JsonObject.success(heartValue);
+        return jsonObject;
+    }
+
+    @RequestMapping("show_tag_chart")
+    @ResponseBody
+    public JsonObject showChildrenTagChart(Long id) {
+        BarChart barChart = hotService.getChildrenTagData(id);
+        JsonObject jsonObject = JsonObject.success(barChart);
         return jsonObject;
     }
 }

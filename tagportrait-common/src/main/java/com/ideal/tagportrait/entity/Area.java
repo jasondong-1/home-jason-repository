@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @Table(name = "tb_area")
 public class Area extends AutoModel{
     private String name;
-
     public String getName() {
         return name;
     }

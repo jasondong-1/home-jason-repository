@@ -676,7 +676,12 @@ pre.prettyprint {
 .smaller-75 {
     font-size: 75% !important;
 }
-
+.width-10{
+    width: 10%;!important;
+}
+.width-15{
+    width: 15%;!important;
+}
 .width-20 {
     width: 20% !important;
 }
@@ -16842,18 +16847,18 @@ div.dataTables_scrollFoot table {
     vertical-align: middle;
 }
 
-/**
-.chosen-select {
-  display: inline !important; //for validation plugin to work it must be displayed
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  z-index: -1;
-  width: 0;
-  height: 0;
-  border-width: 0;
-}
-*/
+
+/*.chosen-select {*/
+  /*display: inline !important; //for validation plugin to work it must be displayed*/
+  /*visibility: hidden;*/
+  /*opacity: 0;*/
+  /*position: absolute;*/
+  /*z-index: -1;*/
+  /*width: 0;*/
+  /*height: 0;*/
+  /*border-width: 0;*/
+/*}*/
+
 .chosen-container,
 [class*="chosen-container"] {
     vertical-align: middle;
