@@ -139,14 +139,23 @@ function callback_first(r) {
     var success = r['success'];
     if(success){
         //alert(JSON.stringify(r));
-        $("#form-field-select-2").empty();
-        $("#form-field-select-2").append("<option value=\"0\" selected=\"selected\">全部</option>");
-        for(var i=0;i<data.length;i++){
-            var item = data[i];
-            var option = "<option value='" + item.id +"'>" + item.name + "</option>";
-            $("#form-field-select-2").append(option);
+        var  first= $("#form-field-select-1").val();
+        if("无"==first){
+            $("#form-field-select-2").empty();
+            $("#form-field-select-2").append("<option value=\"无\" selected=\"selected\">无内容</option>");
+            $("#form-field-select-3").empty();
+            $("#form-field-select-3").append("<option value=\"无\" selected=\"selected\">无内容</option>");
+        }else{
+            $("#form-field-select-2").empty();
+            $("#form-field-select-2").append("<option value=\"无\" selected=\"selected\">请选择</option>");
+            for(var i=0;i<data.length;i++){
+                var item = data[i];
+                var option = "<option value='" + item.id +"'>" + item.name + "</option>";
+                $("#form-field-select-2").append(option);
+            }
         }
         $("#form-field-select-2").trigger("chosen:updated");
+        $("#form-field-select-3").trigger("chosen:updated");
     }
 }
 
@@ -162,12 +171,18 @@ function callback_second(r) {
     var success = r['success'];
     if(success){
         //alert(JSON.stringify(r));
-        $("#form-field-select-3").empty();
-        $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">全部</option>");
-        for(var i=0;i<data.length;i++){
-            var item = data[i];
-            var option = "<option value='" + item.id +"'>" + item.name + "</option>";
-            $("#form-field-select-3").append(option);
+        if("无"==second){
+            //alert(dsds+second);
+            $("#form-field-select-3").empty();
+            $("#form-field-select-3").append("<option value=\"无\" selected=\"selected\">无内容</option>");
+        }else{
+            $("#form-field-select-3").empty();
+            $("#form-field-select-3").append("<option value=\"无\" selected=\"selected\">请选择</option>");
+            for(var i=0;i<data.length;i++){
+                var item = data[i];
+                var option = "<option value='" + item.id +"'>" + item.name + "</option>";
+                $("#form-field-select-3").append(option);
+            }
         }
         $("#form-field-select-3").trigger("chosen:updated");
     }
