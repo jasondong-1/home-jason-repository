@@ -21,6 +21,9 @@
   <!--[if lte IE 8]>
   <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-ie.css"/>
   <![endif]-->
+  <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
+  <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
+  <script src="${ctxRoot}/static/js/dist.js"></script>
   <style>
     .chosen-container {
       margin-right: 15px;
@@ -30,6 +33,44 @@
       border: 0px;
     }
   </style>
+  <script type="text/javascript">
+    $(function() {
+      require.config({
+        paths: {
+          echarts: '${ctxRoot}/static/framework/echarts'
+        }
+      });
+      require(
+              [
+                'echarts',
+                'echarts/chart/map'  // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+              ],
+              function (ec) {
+                var url = 'show_map_chart.do'
+                var data = {tagId: 1};
+                X.post(url, data, mapCallback);
+              }
+      );
+
+      $("#btnSearch").click(function(){
+        var tagId = '';
+        if($("#form-field-select-3").val() != '无'){
+          tagId = $("#form-field-select-3").val();
+        }else if($("#form-field-select-2").val() != '无') {
+          tagId = $("#form-field-select-2").val();
+        }else if($("#form-field-select-1").val() != '无') {
+          tagId = $("#form-field-select-1").val();
+        }
+        if(tagId == '') {
+          alert("请选择一个标签！")
+        } else {
+          var url = 'show_map_chart.do'
+          var data = {tagId: tagId};
+          X.post(url, data, mapCallback);
+        }
+      });
+    });
+  </script>
 </head>
 <body>
 <div class="main-container" id="main-container">
@@ -78,7 +119,7 @@
                           <option value="无">请选择</option>
                         </select>
                         <button class="btn btn-sm btn-info"
-                                style="width: 80px;float: right">查 询
+                                style="width: 80px;float: right" id="btnSearch">查 询
                         </button>
                       </div>
                     </div>
@@ -99,29 +140,6 @@
     </div>
   </div>
 </div>
-<script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
-<script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
-<script src="${ctxRoot}/static/js/dist.js"></script>
-<script type="text/javascript">
-  $(function() {
-    require.config({
-      paths: {
-        echarts: '${ctxRoot}/static/framework/echarts'
-      }
-    });
-    require(
-            [
-              'echarts',
-              'echarts/chart/map'  // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
-            ],
-            function (ec) {
-              var url = 'show_map_chart.do'
-              var data = {tagId: 1, areaId: 1};
-              X.post(url, data, mapCallback);
-            }
-    );
-  });
-</script>
 </body>
 </html>
 

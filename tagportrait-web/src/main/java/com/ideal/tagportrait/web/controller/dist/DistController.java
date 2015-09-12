@@ -1,8 +1,10 @@
 package com.ideal.tagportrait.web.controller.dist;
 
+import com.ideal.tagportrait.dto.MapChart;
 import com.ideal.tagportrait.entity.Area;
 import com.ideal.tagportrait.entity.Tag;
 import com.ideal.tagportrait.framework.web.json.JsonObject;
+import com.ideal.tagportrait.service.DistService;
 import com.ideal.tagportrait.service.HotService;
 import com.ideal.tagportrait.web.controller.BaseController;
 import org.slf4j.Logger;
@@ -26,6 +28,8 @@ public class DistController extends BaseController {
 
     @Resource
     private HotService hotService;
+    @Resource
+    private DistService distService;
 
     @RequestMapping("index")
     public void index(Model model) {
@@ -53,8 +57,9 @@ public class DistController extends BaseController {
 
     @RequestMapping("show_map_chart")
     @ResponseBody
-    public JsonObject showMapChart() {
-        JsonObject jsonObject = JsonObject.success("");
+    public JsonObject showMapChart(Long tagId) {
+        MapChart mapChart = distService.getAnalysisDataByTagId(tagId);
+        JsonObject jsonObject = JsonObject.success(mapChart);
         return jsonObject;
     }
 }
