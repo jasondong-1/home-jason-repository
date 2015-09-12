@@ -60,19 +60,19 @@
                                             <div>
                                                 <select class="width-15 chosen-select" id="form-field-select-1"
                                                         data-placeholder="Choose a Country..." onchange="onFirstChange()">
-                                                    <option value="">请选择</option>
+                                                    <option value="无">请选择</option>
                                                     <c:forEach var="item" items="${tagFirstList}">
                                                         <option value="${item.id}">${item.name}</option>
                                                     </c:forEach>
                                                 </select>
                                                 <select class="width-15 chosen-select" id="form-field-select-2"
                                                         data-placeholder="Choose a Country..." onchange="onSecondChange()">
-                                                    <option value="二级标签">请选择</option>
+                                                    <option value="无">无内容</option>
                                                 </select>
                                                 <select class="width-15 chosen-select" id="form-field-select-3"
                                                         data-placeholder="Choose a Country...">
                                                     <%--<option value="">&nbsp;</option>--%>
-                                                    <option value="">请选择</option>
+                                                    <option value="无">无内容</option>
                                                 </select>
                                                 <button class="btn btn-sm btn-info"
                                                         style="width: 80px;float: right">查 询
@@ -147,6 +147,7 @@
 <script src="${ctxRoot}/static/framework/bootstrap/assets/js/jquery.dataTables.js"></script>
 <script src="${ctxRoot}/static/framework/bootstrap/assets/js/jquery.dataTables.bootstrap.js"></script>
 <script src="${ctxRoot}/static/js/hot.js"></script>
+
 <script type="text/javascript">
     require.config({
         paths: {

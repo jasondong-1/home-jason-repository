@@ -37,4 +37,5 @@ public class HotService {
     public List<Tag> findThirdTags(Long secondTagId) {
         return tagRepository.findByLevelAndParentId(3L, secondTagId);
     }
+
 }
