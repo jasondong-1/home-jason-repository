@@ -21,6 +21,12 @@
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-ie.css"/>
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="${ctxRoot}/static/css/jquery-ui.css" />
+    <script type="text/javascript" src="${ctxRoot}/static/framework/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="${ctxRoot}/static/framework/ui/jquery.ui.widget.js"></script>
+    <!-- jquery  multiselect-->
+    <link rel="stylesheet" type="text/css" href="${ctxRoot}/static/framework/multiselect/jquery.multiselect.css" />
+    <script type="text/javascript" src="${ctxRoot}/static/framework/multiselect/jquery.multiselect.js"></script>
     <style>
         .chosen-container {
             margin-right: 15px;
@@ -30,6 +36,24 @@
             border: 0px;
         }
     </style>
+    <script type="text/javascript">
+        $(function(){
+            $("#cmbYear").multiselect({
+                noneSelectedText: "2015",
+                checkAllText: '全选',
+                uncheckAllText: '全不选',
+                selectedList:4,
+                minWidth:170
+            });
+        });
+
+        function getSelectedYear(){
+            var year = $("#cmbYear").multiselect("getChecked").map(function(){
+                return this.value;
+            }).get();
+            return year.toString();
+        }
+    </script>
 </head>
 <body>
 <div class="main-container" id="main-container">
@@ -74,6 +98,14 @@
                                                     <%--<option value="">&nbsp;</option>--%>
                                                     <option value="无">无内容</option>
                                                 </select>
+                                                年 <select name="" size="6" class="select_s" multiple="multiple" id="cmbYear">
+                                                        <option value="2015">2015</option>
+                                                        <option value="2014">2014</option>
+                                                        <option value="2013">2013</option>
+                                                        <option value="2012">2012</option>
+                                                        <option value="2011">2011</option>
+                                                        <option value="2010">2010</option>
+                                                    </select>
                                                 <button class="btn btn-sm btn-info"
                                                         style="width: 80px;float: right">查 询
                                                 </button>
