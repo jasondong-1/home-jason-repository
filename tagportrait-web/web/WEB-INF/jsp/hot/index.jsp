@@ -88,7 +88,7 @@
                                                         onchange="onFirstChange()">
                                                     <option value="0">无内容</option>
                                                     <c:forEach var="item" items="${tagFirstList}">
-                                                        <option value="${item.id}">${item.name}</option>
+                                                        <option value="${item.id}" <c:if test="${item.id=='1'}" >selected</c:if> >${item.name}</option>
                                                     </c:forEach>
                                                 </select>
                                                 二级标签：
@@ -106,7 +106,9 @@
                                                 城市: <select name="" size="6" class="select_s" multiple="multiple"
                                                             id="cmbCity">
                                                 <c:forEach var="item" items="${areaList}">
-                                                    <option value="${item.id}">${item.name}</option>
+                                                    <c:if test="${item.id!='1'}">
+                                                        <option value="${item.id}">${item.name}</option>
+                                                    </c:if>
                                                 </c:forEach>
                                             </select>
                                                 <button class="btn btn-sm btn-info"
@@ -162,6 +164,8 @@
 <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
 <script>
     $(function() {
+        onFirstChange();
+        var city=[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35];
         require.config({
             paths: {
                 echarts: '${ctxRoot}/static/framework/echarts'
@@ -175,15 +179,14 @@
                 ],
                 function (ec) {
                     var url = 'show_tag_chart_city.do'
-                    var data = {id: 1,city:'2,3,4'};
+                    var data = {id: 1,city:'2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35'};
                     X.post(url, data, heatValueCallback);
                     var url2= 'index_heartValueAndCity.do'
                     X.post(url2, data, callback_firstTable);
-
                 }
         );
 
-        $("#cmbCity").val([2,3,4]);
+        $("#cmbCity").val(city);
         $("#cmbCity").multiselect('refresh');
     })
 </script>
