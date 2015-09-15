@@ -22,7 +22,11 @@
     <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
     <!-- chosen-->
     <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
-
+    <style>
+        body {
+            margin-bottom: 80px;
+        }
+    </style>
     <style>
         .chosen-container {
             margin-right: 15px;
@@ -143,17 +147,17 @@
         <h4 class="header green">标签描述</h4>
 
         <div class="widget-box">
-            <div class="widget-header widget-header-small header-color-blue"><h4 class="lighter smaller">当前标签：<span id="current-tag-name"></span></h4></div>
+            <div class="widget-header widget-header-small header-color-blue">
+                <h4 class="lighter smaller" style="float: left">当前标签：<span id="current-tag-name"></span></h4>
+                <button class="btn btn-sm btn-primary" id="btnSave" style="float: right;width: 60px;margin-right: 10px;">
+                    <i class="icon-save bigger-125"></i>
+                    保  存
+                </button>
+            </div>
             <input type="hidden" id="current-tag-id" value="">
             <div class="widget-body">
                 <div class="widget-main no-padding">
                     <div class="md-editor" id="1441964727113"><textarea id="tag-description" class="span12 md-input" name="content" data-provide="markdown" rows="10" style="resize: none;">请选择标签</textarea></div>
-                </div>
-                <div class="btn-group pull-right">
-                    <button class="btn btn-sm btn-purple" id="btnSave">
-                        <i class="icon-save bigger-125"></i>
-                        Save
-                    </button>
                 </div>
             </div>
         </div>
