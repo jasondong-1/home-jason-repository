@@ -6,9 +6,13 @@
     <title>homepage</title>
     <!-- basic styles -->
     <link href="${ctxRoot}/static/framework/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/font-awesome.css">
+    <!-- fonts -->
+    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-fonts.css">
     <!-- ace styles -->
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/chosen.css"/>
     <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace.css">
+    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-rtl.css">
+    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-skins.css">
     <!-- custom-->
     <link rel="stylesheet" href="${ctxRoot}/static/css/css.css">
     <!-- ztree -->
@@ -21,14 +25,19 @@
     <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
     <!-- chosen-->
     <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
-
+    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/chosen.css"/>
     <style>
         .chosen-container {
             margin-right: 15px;
         }
+        /*
+        .widget-box {
+          border: 0px;
+        }
+        */
     </style>
     <script type="text/javascript">
-        $(function () {
+        $(function() {
             require.config({
                 paths: {
                     echarts: '${ctxRoot}/static/framework/echarts'
@@ -50,28 +59,22 @@
             //treeObj.setting.async.otherParam = {areaId: 1};
             $(".chosen-select").chosen();
 
-            $("#btnSave").click(function () {
+            $("#btnSave").click(function(){
                 var url = 'save_tag_description.do';
-                var data = {tagId: $('#current-tag-id').val(), description: $('#tag-description').val()};
+                var data = {tagId: $('#current-tag-id').val(),description: $('#tag-description').val()};
                 X.post(url, data, '');
 
             });
         });
     </script>
-    <style>
-        body {
-            margin-bottom: 80px;
-        }
-    </style>
 </head>
 <body>
 <div class="page-content">
     <div class="page-header">
         <h1>
-            标签体系页面
+            标签体系展现
         </h1>
-    </div>
-    <!-- /.page-header -->
+    </div><!-- /.page-header -->
 
     <div class="row">
         <div class="col-xs-12">
@@ -132,38 +135,42 @@
                     </div>
                 </div>
             </div>
+
             <script type="text/javascript">
                 var $assets = "assets";//this will be used in fuelux.tree-sampledata.js
             </script>
+
             <!-- PAGE CONTENT ENDS -->
-        </div>
-        <!-- /.col -->
-    </div>
-    <!-- /.row -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+
+
+
     <div class="col-sm-12">
         <h4 class="header green">标签描述</h4>
 
         <div class="widget-box">
-            <div class="widget-header widget-header-small header-color-blue">
-                <h4 class="lighter smaller" style="float: left">当前标签：<span id="current-tag-name"></span></h4>
-                <button class="btn btn-sm btn-info" id="btnSave" style="float: right;width: 60px;margin-right: 10px">
-                    <i class="icon-save bigger-125"></i>
-                    保存
-                </button>
-            </div>
+            <div class="widget-header widget-header-small header-color-blue"><h4 class="lighter smaller">当前标签：<span id="current-tag-name"></span></h4></div>
             <input type="hidden" id="current-tag-id" value="">
-
             <div class="widget-body">
                 <div class="widget-main no-padding">
-                    <div class="md-editor" id="1441964727113">
-                        <textarea id="tag-description" class="span12 md-input"
-                                  name="content" data-provide="markdown" rows="10"
-                                  style="resize: none;">请选择标签</textarea>
-                    </div>
+                    <div class="md-editor" id="1441964727113"><textarea id="tag-description" class="span12 md-input" name="content" data-provide="markdown" rows="10" style="resize: none;">请选择标签</textarea></div>
+                </div>
+                <div class="btn-group pull-right">
+                    <button class="btn btn-sm btn-purple" id="btnSave">
+                        <i class="icon-save bigger-125"></i>
+                        Save
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+
+
 </div>
+
+
 </body>
 </html>

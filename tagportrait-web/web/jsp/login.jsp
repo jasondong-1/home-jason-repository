@@ -51,7 +51,7 @@
                     <div class="center">
                         <h1>
                             <i class="ace-icon fa fa-cogs green"></i>
-                            <span class="white" id="id-text2">用户标签画像系统</span>
+                            <span class="white" id="id-text2">精准营销平台</span>
                         </h1>
                         <h4 class="grey" id="id-company-text">&copy; 上海理想信息产业（集团）有限公司</h4>
                     </div>

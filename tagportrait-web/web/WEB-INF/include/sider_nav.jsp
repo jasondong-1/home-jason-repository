@@ -3,7 +3,7 @@
     <li <c:if test="${pageContext.request.requestURI eq '/coral/main/index.do'}">class="active"</c:if>>
         <a href="${ctxRoot}/main/index.do">
             <i class="menu-icon fa fa-home"></i>
-            <span class="menu-text">标签体系页面</span>
+            <span class="menu-text">标签体系展现</span>
         </a>
         <b class="arrow"></b>
     </li>
