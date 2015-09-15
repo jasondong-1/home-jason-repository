@@ -23,7 +23,7 @@ var option = {
     },
     dataRange: {
         min: 0,
-        max: 5000,
+        max: 2500,
         x: 'left',
         y: 'bottom',
         text:['高','低'],           // 文本，默认为数值文本
@@ -100,14 +100,16 @@ function callback_first(r) {
     if(success){
         //alert(JSON.stringify(r));
         var  first= $("#form-field-select-1").val();
-        if("无"==first){
+        if("0"==first){
             $("#form-field-select-2").empty();
-            $("#form-field-select-2").append("<option value=\"无\" selected=\"selected\">无内容</option>");
             $("#form-field-select-3").empty();
-            $("#form-field-select-3").append("<option value=\"无\" selected=\"selected\">无内容</option>");
+            $("#form-field-select-2").append("<option value=\"0\" selected=\"selected\">无内容</option>");
+            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">无内容</option>");
         }else{
             $("#form-field-select-2").empty();
-            $("#form-field-select-2").append("<option value=\"无\" selected=\"selected\">请选择</option>");
+            $("#form-field-select-3").empty();
+            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">无内容</option>");
+            $("#form-field-select-2").append("<option value=\"0\" selected=\"selected\">请选择</option>");
             for(var i=0;i<data.length;i++){
                 var item = data[i];
                 var option = "<option value='" + item.id +"'>" + item.name + "</option>";
@@ -131,13 +133,13 @@ function callback_second(r) {
     var success = r['success'];
     if(success){
         var  second=$("#form-field-select-2").val();
-        if("无"==second){
+        if("0"==second){
             //alert(dsds+second);
             $("#form-field-select-3").empty();
-            $("#form-field-select-3").append("<option value=\"无\" selected=\"selected\">无内容</option>");
+            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">无内容</option>");
         }else{
             $("#form-field-select-3").empty();
-            $("#form-field-select-3").append("<option value=\"无\" selected=\"selected\">请选择</option>");
+            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">请选择</option>");
             for(var i=0;i<data.length;i++){
                 var item = data[i];
                 var option = "<option value='" + item.id +"'>" + item.name + "</option>";

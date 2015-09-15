@@ -35,6 +35,7 @@
   </style>
   <script type="text/javascript">
     $(function() {
+      onFirstChange();
       require.config({
         paths: {
           echarts: '${ctxRoot}/static/framework/echarts'
@@ -101,22 +102,25 @@
                       <div>
                         一级标签：
                         <select class="width-15 chosen-select" id="form-field-select-1"
-                                data-placeholder="Choose a Country..." onchange="onFirstChange()">
-                          <option value="无">请选择</option>
+                                onchange="onFirstChange()">
+                          <option value="0">无内容</option>
                           <c:forEach var="item" items="${tagFirstList}">
-                            <option value="${item.id}">${item.name}</option>
+                            <option value="${item.id}" <c:if test="${item.id=='1'}" >selected="selected"</c:if> >${item.name}</option>
                           </c:forEach>
+                          <%--<c:forEach var="item" items="${tagFirstList}">--%>
+                            <%--<option value="${item.id}">${item.name}</option>--%>
+                          <%--</c:forEach>--%>
                         </select>
                         二级标签：
                         <select class="width-15 chosen-select" id="form-field-select-2"
-                                data-placeholder="Choose a Country..." onchange="onSecondChange()">
-                          <option value="无">请选择</option>
+                                 onchange="onSecondChange()">
+                          <option value="0">无内容</option>
                         </select>
                         三级标签：
                         <select class="width-15 chosen-select" id="form-field-select-3"
-                                data-placeholder="Choose a Country...">
+                                >
                           <%--<option value="">&nbsp;</option>--%>
-                          <option value="无">请选择</option>
+                          <option value="0">无内容</option>
                         </select>
                         <button class="btn btn-sm btn-info"
                                 style="width: 80px;float: right" id="btnSearch">查 询
