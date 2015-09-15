@@ -65,7 +65,7 @@
           alert("请选择一个标签！")
         } else {
           var url = 'show_map_chart.do'
-          // var data = {tagId: 1};
+          var data = {tagId: tagId};
           X.post(url, data, mapCallback);
         }
       });

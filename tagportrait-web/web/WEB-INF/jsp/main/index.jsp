@@ -5,14 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>homepage</title>
     <!-- basic styles -->
-    <link href="${ctxRoot}/static/framework/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/font-awesome.css">
-    <!-- fonts -->
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-fonts.css">
+
     <!-- ace styles -->
+    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/chosen.css"/>
     <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace.css">
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-rtl.css">
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-skins.css">
+
     <!-- custom-->
     <link rel="stylesheet" href="${ctxRoot}/static/css/css.css">
     <!-- ztree -->
@@ -25,16 +22,11 @@
     <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
     <!-- chosen-->
     <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/chosen.css"/>
+
     <style>
         .chosen-container {
             margin-right: 15px;
         }
-        /*
-        .widget-box {
-          border: 0px;
-        }
-        */
     </style>
     <script type="text/javascript">
         $(function() {
