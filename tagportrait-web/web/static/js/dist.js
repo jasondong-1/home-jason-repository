@@ -149,7 +149,7 @@ function callback_second(r) {
 }
 
 function mapCallback(r) {
-    alert(JSON.stringify(r));
+    //alert(JSON.stringify(r));
     var type = r['type'];
     var data = r['data'];
     var success = r['success'];
