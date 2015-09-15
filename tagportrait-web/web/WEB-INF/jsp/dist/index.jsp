@@ -62,7 +62,6 @@
                 } else if ($("#form-field-select-1").val() != '0') {
                     tagId = $("#form-field-select-1").val();
                 }
-                alert(tagId);
                 if (tagId == '') {
                     alert("请选择一个标签！")
                 } else {
