@@ -94,7 +94,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-3">
                     <div class="widget-box">
                         <div class="widget-header header-color-blue2">
                             <h4 class="lighter smaller">标签体系</h4>
@@ -114,10 +114,10 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-9">
                     <div class="widget-box">
-                        <div class="widget-header header-color-green2">
-                            <h4 class="lighter smaller">Browse Files</h4>
+                        <div class="widget-header header-color-blue2">
+                            <h4 class="lighter smaller">标签分布图</h4>
                         </div>
 
                         <div class="widget-body">
@@ -149,7 +149,7 @@
         <div class="widget-box">
             <div class="widget-header widget-header-small header-color-blue">
                 <h4 class="lighter smaller" style="float: left">当前标签：<span id="current-tag-name"></span></h4>
-                <button class="btn btn-sm btn-primary" id="btnSave" style="float: right;width: 60px;margin-right: 10px;">
+                <button class="btn btn-sm btn-primary" id="btnSave" style="float: right;width: 60px;                                                                                                              margin-right: 10px;">
                     <i class="icon-save bigger-125"></i>
                     保  存
                 </button>

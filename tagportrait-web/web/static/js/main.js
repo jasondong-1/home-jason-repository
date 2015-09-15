@@ -51,7 +51,7 @@ var itemStyle = {
 };
 
 function onClick(event, treeId, treeNode) {
-    var url = 'show_tag_chart.do';
+    var url = 'show_tag_chart_top.do';
     var areaId = $("#form-field-select-1").val();
     var data = {tagId: treeNode.id, areaId: areaId};
     X.post(url, data, treeClickCallback);
@@ -61,7 +61,7 @@ function onClick(event, treeId, treeNode) {
 }
 
 function treeClickCallback(r) {
-    //alert(JSON.stringify(r));
+    alert(JSON.stringify(r));
     var type = r['type'];
     var data = r['data'];
     var success = r['success'];
