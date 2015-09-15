@@ -22,7 +22,7 @@ public class Analysis extends AutoModel{
     private Tag tag;
     private Long tagNum;
     private Long percent;
-    private Long heatValue;
+    private Float heatValue;
 
     public Area getArea() {
         return area;
@@ -56,11 +56,11 @@ public class Analysis extends AutoModel{
         this.percent = percent;
     }
 
-    public Long getHeatValue() {
+    public Float getHeatValue() {
         return heatValue;
     }
 
-    public void setHeatValue(Long heatValue) {
+    public void setHeatValue(Float heatValue) {
         this.heatValue = heatValue;
     }
 }

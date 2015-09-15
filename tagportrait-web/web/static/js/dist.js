@@ -149,7 +149,7 @@ function callback_second(r) {
 }
 
 function mapCallback(r) {
-    //alert(JSON.stringify(r));
+    alert(JSON.stringify(r));
     var type = r['type'];
     var data = r['data'];
     var success = r['success'];
@@ -159,6 +159,6 @@ function mapCallback(r) {
     option.legend.data=[];
     option.legend.data.push(series[0].name);
     //alert(JSON.stringify(option));
-    //option.legend.data = [series[0]['name']];
+    option.legend.data = [series[0]['name']];
     require('echarts').init(document.getElementById('map')).setOption(option);
 }

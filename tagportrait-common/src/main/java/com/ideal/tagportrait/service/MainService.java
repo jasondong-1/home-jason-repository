@@ -59,11 +59,11 @@ public class MainService {
 
         List<Series> seriesList = new ArrayList<Series>();
         Series series = new Series("num", "bar");
-        List<Long> seriesData = new ArrayList<Long>();
+        List<Float> seriesData = new ArrayList<Float>();
         for (int i=0; i<list.size(); i++) {
             Object[] objects = (Object[]) list.get(i);
             xAxisData.add(objects[1].toString());
-            seriesData.add(Long.valueOf(objects[2].toString()));
+            seriesData.add(Float.parseFloat(objects[2].toString()));
         }
         xAxis.setData(xAxisData);
         xAxisList.add(xAxis);

@@ -10,7 +10,7 @@ import java.util.List;
 public class Series implements Serializable {
     private String name;
     private String type;
-    private List<Long> data;
+    private List<Float> data;
 
     public Series() {
     }
@@ -36,11 +36,11 @@ public class Series implements Serializable {
         this.type = type;
     }
 
-    public List<Long> getData() {
+    public List<Float> getData() {
         return data;
     }
 
-    public void setData(List<Long> data) {
+    public void setData(List<Float> data) {
         this.data = data;
     }
 }

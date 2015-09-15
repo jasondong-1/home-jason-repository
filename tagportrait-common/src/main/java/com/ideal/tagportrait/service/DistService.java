@@ -44,7 +44,7 @@ public class DistService {
             } else {
                 String tagName = objects[1].toString();
                 mapSeries = new MapSeries("标签 " + tagName + " 数量 " + Long.valueOf(objects[2].toString()), "map", "china");
-
+                //
             }
         }
         mapSeries.setData(mapDataList);

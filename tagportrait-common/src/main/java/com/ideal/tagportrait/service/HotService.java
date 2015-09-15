@@ -2,6 +2,7 @@ package com.ideal.tagportrait.service;
 
 import com.google.common.collect.Lists;
 
+import com.ideal.tagportrait.dto.AnalysisDto;
 import com.ideal.tagportrait.dto.BarChart;
 import com.ideal.tagportrait.dto.Series;
 import com.ideal.tagportrait.dto.XAxis;
@@ -48,25 +49,35 @@ public class HotService {
         return tagRepository.findByLevelAndParentId(3L, secondTagId);
     }
 
-    public List<Analysis> findHeartValueAndCity(Long id,String city) {
-        return analysisRepository.getAnalysisHeatValueByTagIdAndCity(id,city);
+    public List<AnalysisDto> findHeartValueAndCity(Long id,String city) {
+        List<Long> areaids = Lists.newArrayList();
+        for(String s : city.split(",")) {
+            areaids.add(Long.parseLong(s));
+        }
+        List kk = analysisRepository.getAnalysisHeatValueByTagIdAndCity(id, areaids);
+        logger.warn(String.valueOf(kk.size()));
+        return kk;
+
     }
 
     public BarChart getHeatValueCityTagData(Long id,String city) {
         BarChart barChart = new BarChart();
-        logger.debug("tagId:" + id+"cityName:"+city);
-        List list = analysisRepository.getAnalysisHeatValueTopByTagIdAndCity(id, city);
+        List<Long> kk = Lists.newArrayList();
+        for(String s : city.split(",")) {
+            kk.add(Long.parseLong(s));
+        }
+        List list = analysisRepository.getAnalysisHeatValueTopByTagIdAndCity(id, kk);
         List<XAxis> xAxisList = new ArrayList<XAxis>();
         XAxis xAxis = new XAxis("category");
         List<String> xAxisData = new ArrayList<String>();
 
         List<Series> seriesList = new ArrayList<Series>();
         Series series = new Series("热度值", "bar");
-        List<Long> seriesData = new ArrayList<Long>();
+        List<Float> seriesData = new ArrayList<Float>();
         for (int i=0; i<list.size(); i++) {
             Object[] objects = (Object[]) list.get(i);
             xAxisData.add(objects[1].toString());
-            seriesData.add(Long.valueOf(objects[2].toString()));
+            seriesData.add(Float.parseFloat(objects[2].toString()));
         }
         xAxis.setData(xAxisData);
         xAxisList.add(xAxis);

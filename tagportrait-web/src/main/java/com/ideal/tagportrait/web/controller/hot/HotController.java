@@ -1,5 +1,6 @@
 package com.ideal.tagportrait.web.controller.hot;
 
+import com.ideal.tagportrait.dto.AnalysisDto;
 import com.ideal.tagportrait.dto.BarChart;
 import com.ideal.tagportrait.entity.Analysis;
 import com.ideal.tagportrait.entity.Area;
@@ -58,29 +59,16 @@ public class HotController extends BaseController {
         JsonObject jsonObject = JsonObject.success(thirdTagList);
         return jsonObject;
     }
-//    @RequestMapping("index_heartValue")
-//    @ResponseBody
-//    public JsonObject heartValue(String id) {
-//        logger.debug(String.format("id:%s",id));
-//        List<Analysis> heartValue = hotService.findHeartValue(Long.parseLong(id));
-//        JsonObject jsonObject = JsonObject.success(heartValue);
-//        return jsonObject;
-//    }
+
     @RequestMapping("index_heartValueAndCity")
     @ResponseBody
     public JsonObject heartValueAndCity(String id,String city) {
         logger.debug(String.format("id:%s",id)+"city:"+city);
-        List<Analysis> heartValue = hotService.findHeartValueAndCity(Long.parseLong(id), city);
+        List<AnalysisDto> heartValue = hotService.findHeartValueAndCity(Long.parseLong(id), city);
         JsonObject jsonObject = JsonObject.success(heartValue);
         return jsonObject;
     }
-//    @RequestMapping("show_tag_chart")
-//    @ResponseBody
-//    public JsonObject showChildrenTagChart(Long id) {
-//        BarChart barChart = hotService.getHeatValueTagData(id);
-//        JsonObject jsonObject = JsonObject.success(barChart);
-//        return jsonObject;
-//    }
+
     @RequestMapping("show_tag_chart_city")
     @ResponseBody
     public JsonObject showHeatValueByCityTagChart(Long id,String city) {
