@@ -47,7 +47,7 @@
                     ],
                     function (ec) {
                         var url = 'show_tag_chart.do'
-                        var data = {tagId: 1, areaId: 1};
+                        var data = {tagId: 0, areaId: 1};
                         X.post(url, data, treeClickCallback);
                     }
             );
@@ -60,6 +60,12 @@
                 var data = {tagId: $('#current-tag-id').val(),description: $('#tag-description').val()};
                 X.post(url, data, '');
 
+            });
+            $("#reset").click(function(){
+                var url = 'show_tag_chart.do'
+                var data = {tagId: 0, areaId: 1};
+                X.post(url, data, treeClickCallback);
+                $(".curSelectedNode").removeClass("curSelectedNode");
             });
         });
     </script>
@@ -117,9 +123,11 @@
                 <div class="col-sm-9">
                     <div class="widget-box">
                         <div class="widget-header header-color-blue2">
-                            <h4 class="lighter smaller">标签分布图</h4>
+                            <h4 class="lighter smaller" style="float: left">标签分布图</h4>
+                            <button class="btn btn-sm btn-primary"
+                                    style="width: 80px;float: right;outline: none" id="reset">一级标签
+                            </button>
                         </div>
-
                         <div class="widget-body">
                             <div class="widget-main padding-8">
                                 <div id="main" style="height:400px;"></div>
@@ -149,7 +157,7 @@
         <div class="widget-box">
             <div class="widget-header widget-header-small header-color-blue">
                 <h4 class="lighter smaller" style="float: left">当前标签：<span id="current-tag-name"></span></h4>
-                <button class="btn btn-sm btn-primary" id="btnSave" style="float: right;width: 60px;                                                                                                              margin-right: 10px;">
+                <button class="btn btn-sm btn-primary" id="btnSave" style="float: right;width: 60px;margin-right: 10px;">
                     <i class="icon-save bigger-125"></i>
                     保  存
                 </button>
@@ -157,7 +165,9 @@
             <input type="hidden" id="current-tag-id" value="">
             <div class="widget-body">
                 <div class="widget-main no-padding">
-                    <div class="md-editor" id="1441964727113"><textarea id="tag-description" class="span12 md-input" name="content" data-provide="markdown" rows="10" style="resize: none;">请选择标签</textarea></div>
+                    <div class="md-editor" id="1441964727113">
+                        <textarea id="tag-description" class="span12 md-input" name="content" data-provide="markdown" rows="10" style="resize: none;">请选择标签</textarea>
+                    </div>
                 </div>
             </div>
         </div>

@@ -55,13 +55,14 @@
 
             $("#btnSearch").click(function () {
                 var tagId = '';
-                if ($("#form-field-select-3").val() != '无') {
+                if ($("#form-field-select-3").val() != '0') {
                     tagId = $("#form-field-select-3").val();
-                } else if ($("#form-field-select-2").val() != '无') {
+                } else if ($("#form-field-select-2").val() != '0') {
                     tagId = $("#form-field-select-2").val();
-                } else if ($("#form-field-select-1").val() != '无') {
+                } else if ($("#form-field-select-1").val() != '0') {
                     tagId = $("#form-field-select-1").val();
                 }
+                alert(tagId);
                 if (tagId == '') {
                     alert("请选择一个标签！")
                 } else {

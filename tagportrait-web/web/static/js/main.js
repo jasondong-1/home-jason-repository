@@ -26,7 +26,7 @@ var option = {
         {
             name:'num',
             type:'bar',
-            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3]
+            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4]
         }
     ]
 };
@@ -51,17 +51,16 @@ var itemStyle = {
 };
 
 function onClick(event, treeId, treeNode) {
-    var url = 'show_tag_chart_top.do';
+    var url = 'show_tag_chart.do';
     var areaId = $("#form-field-select-1").val();
     var data = {tagId: treeNode.id, areaId: areaId};
     X.post(url, data, treeClickCallback);
-
     var url2='query_tag_description.do';
     X.post(url2, data, descriptionCallback);
 }
 
 function treeClickCallback(r) {
-    alert(JSON.stringify(r));
+    //alert(JSON.stringify(r));
     var type = r['type'];
     var data = r['data'];
     var success = r['success'];

@@ -52,20 +52,14 @@ public class MainController extends BaseController {
         return treeNodeList;
     }
 
-//    @RequestMapping("show_tag_chart")
-//    @ResponseBody
-//    public JsonObject showChildrenTagChart(String tagId, Long areaId) {
-//        BarChart barChart = mainService.getChildrenTagData(tagId, areaId);
-//        JsonObject jsonObject = JsonObject.success(barChart);
-//        return jsonObject;
-//    }
-    @RequestMapping("show_tag_chart_top")
+    @RequestMapping("show_tag_chart")
     @ResponseBody
-    public JsonObject showChildrenTagChartTop(String tagId, Long areaId) {
-        BarChart barChart = mainService.getChildrenTagDataTop(tagId, areaId);
+    public JsonObject showChildrenTagChart(String tagId, Long areaId) {
+        BarChart barChart = mainService.getChildrenTagData(tagId, areaId);
         JsonObject jsonObject = JsonObject.success(barChart);
         return jsonObject;
     }
+
     @RequestMapping("save_tag_description")
     @ResponseBody
     public JsonObject saveTagDescription(String tagId, String description) {

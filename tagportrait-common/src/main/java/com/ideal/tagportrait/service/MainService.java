@@ -49,35 +49,10 @@ public class MainService {
     }
 
 
-//    public BarChart getChildrenTagData(String tagId, Long areaId) {
-//        BarChart barChart = new BarChart();
-//        logger.debug("tagId:" + tagId);
-//        List list = tagRepository.getChildrenTagData(tagId, areaId);
-//        List<XAxis> xAxisList = new ArrayList<XAxis>();
-//        XAxis xAxis = new XAxis("category");
-//        List<String> xAxisData = new ArrayList<String>();
-//
-//        List<Series> seriesList = new ArrayList<Series>();
-//        Series series = new Series("num", "bar");
-//        List<Float> seriesData = new ArrayList<Float>();
-//        for (int i=0; i<list.size(); i++) {
-//            Object[] objects = (Object[]) list.get(i);
-//            xAxisData.add(objects[1].toString());
-//            seriesData.add(Float.parseFloat(objects[2].toString()));
-//        }
-//        xAxis.setData(xAxisData);
-//        xAxisList.add(xAxis);
-//        barChart.setxAxis(xAxisList);
-//
-//        series.setData(seriesData);
-//        seriesList.add(series);
-//        barChart.setSeries(seriesList);
-//        return barChart;
-//    }
-    public BarChart getChildrenTagDataTop(String tagId, Long areaId) {
+    public BarChart getChildrenTagData(String tagId, Long areaId) {
         BarChart barChart = new BarChart();
         logger.debug("tagId:" + tagId);
-        List list = tagRepository.getChildrenTagDataTop(tagId, areaId);
+        List list = tagRepository.getChildrenTagData(tagId, areaId);
         List<XAxis> xAxisList = new ArrayList<XAxis>();
         XAxis xAxis = new XAxis("category");
         List<String> xAxisData = new ArrayList<String>();
