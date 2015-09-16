@@ -5,11 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>homepage</title>
     <!-- basic styles -->
-
     <!-- ace styles -->
     <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/chosen.css"/>
     <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace.css">
-
     <!-- custom-->
     <link rel="stylesheet" href="${ctxRoot}/static/css/css.css">
     <!-- ztree -->
@@ -26,14 +24,12 @@
         body {
             margin-bottom: 80px;
         }
-    </style>
-    <style>
         .chosen-container {
             margin-right: 15px;
         }
     </style>
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             require.config({
                 paths: {
                     echarts: '${ctxRoot}/static/framework/echarts'
@@ -55,17 +51,17 @@
             //treeObj.setting.async.otherParam = {areaId: 1};
             $(".chosen-select").chosen();
 
-            $("#btnSave").click(function(){
+            $("#btnSave").click(function () {
                 var url = 'save_tag_description.do';
-                var data = {tagId: $('#current-tag-id').val(),description: $('#tag-description').val()};
+                var data = {tagId: $('#current-tag-id').val(), description: $('#tag-description').val()};
                 X.post(url, data, '');
-
             });
-            $("#reset").click(function(){
+            $("#reset").click(function () {
                 var url = 'show_tag_chart.do'
                 var data = {tagId: 0, areaId: 1};
                 X.post(url, data, treeClickCallback);
                 $(".curSelectedNode").removeClass("curSelectedNode");
+                $('#current-tag-name').html('');
             });
         });
     </script>
@@ -76,8 +72,8 @@
         <h1>
             标签体系展现
         </h1>
-    </div><!-- /.page-header -->
-
+    </div>
+    <!-- /.page-header -->
     <div class="row">
         <div class="col-xs-12">
             <!-- PAGE CONTENT BEGINS -->
@@ -105,7 +101,6 @@
                         <div class="widget-header header-color-blue2">
                             <h4 class="lighter smaller">标签体系</h4>
                         </div>
-
                         <div class="widget-body">
                             <div class="widget-main padding-8">
                                 <div class="mainzuo" style="overflow:auto">
@@ -119,7 +114,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-9">
                     <div class="widget-box">
                         <div class="widget-header header-color-blue2">
@@ -143,40 +137,35 @@
             <script type="text/javascript">
                 var $assets = "assets";//this will be used in fuelux.tree-sampledata.js
             </script>
-
             <!-- PAGE CONTENT ENDS -->
-        </div><!-- /.col -->
-    </div><!-- /.row -->
-
-
-
-
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
     <div class="col-sm-12">
         <h4 class="header green">标签描述</h4>
 
         <div class="widget-box">
             <div class="widget-header widget-header-small header-color-blue">
                 <h4 class="lighter smaller" style="float: left">当前标签：<span id="current-tag-name"></span></h4>
-                <button class="btn btn-sm btn-primary" id="btnSave" style="float: right;width: 60px;margin-right: 10px;">
+                <button class="btn btn-sm btn-primary" id="btnSave"
+                        style="float: right;width: 60px;margin-right: 10px;">
                     <i class="icon-save bigger-125"></i>
-                    保  存
+                    保 存
                 </button>
             </div>
             <input type="hidden" id="current-tag-id" value="">
+
             <div class="widget-body">
                 <div class="widget-main no-padding">
                     <div class="md-editor" id="1441964727113">
-                        <textarea id="tag-description" class="span12 md-input" name="content" data-provide="markdown" rows="10" style="resize: none;">请选择标签</textarea>
+                        <textarea id="tag-description" class="span12 md-input" name="content" data-provide="markdown"
+                                  rows="10" style="resize: none;">请选择标签</textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 </div>
-
-
 </body>
 </html>

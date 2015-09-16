@@ -42,12 +42,12 @@
     <script type="text/javascript" src="${ctxRoot}/static/js/jquery-1.8.1.min.js"></script>
 </head>
 
-<body class="login-layout " style="background-image: url('${ctx}/static/images/bg.jpg'); background-size:100% 100%; ">
+<body class="login-layout " style="background-image: url('${ctx}/static/images/1.jpg'); background-size:100% 100%; ">
 <div class="main-container">
     <div class="main-content">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
-                <div class="login-container">
+                <div class="login-container2">
                     <div class="center">
                         <h1>
                             <i class="ace-icon fa fa-cogs green"></i>
@@ -60,7 +60,7 @@
 
                     <div class="position-relative">
                         <div id="login-box" class="login-box visible widget-box no-border">
-                            <div class="widget-body">
+                            <div class="widget-body" style="opacity: 0.95">
                                 <div class="widget-main">
                                     <h4 class="header blue lighter bigger">
                                         <i class="ace-icon fa fa-key green"></i>

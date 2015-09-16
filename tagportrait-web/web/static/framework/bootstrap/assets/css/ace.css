@@ -14331,7 +14331,10 @@ td .lbl:only-child {
     width: 375px;
     margin: 0 auto;
 }
-
+.login-container2 {
+    width: 375px;
+    margin: 100px auto;
+}
 .login-layout {
     background-color: #1D2024;
 }
