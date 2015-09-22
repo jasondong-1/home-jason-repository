@@ -71,10 +71,17 @@
     <!--使用私服-->
     <repositories>
         <repository>
+        <!--
             <id>nexus</id>
             <name>local private nexus</name>
             <url>http://61.172.243.73:3000/maven-web/content/groups/public</url>
         </repository>
+        -->
+        <repository>
+        <id>thirdparty</id>
+        <name>3rd party</name>
+        <url>http://42.123.80.190:8081/nexus/content/repositories/thirdparty</url>
+         </repository>
     </repositories>
 
 </project>
