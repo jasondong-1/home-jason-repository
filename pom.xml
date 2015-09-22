@@ -70,8 +70,9 @@
 
     <!--使用私服-->
     <repositories>
+       <!--
         <repository>
-        <!--
+        
             <id>nexus</id>
             <name>local private nexus</name>
             <url>http://61.172.243.73:3000/maven-web/content/groups/public</url>
