@@ -79,6 +79,11 @@
         </repository>
         -->
         <repository>
+        <id>releases</id>
+        <name>Nexus Release Repository</name>
+        <url>http://42.123.80.190:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
         <id>thirdparty</id>
         <name>3rd party</name>
         <url>http://42.123.80.190:8081/nexus/content/repositories/thirdparty</url>
