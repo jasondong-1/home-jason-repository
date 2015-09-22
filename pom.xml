@@ -8,6 +8,17 @@
     <artifactId>tagportrait-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    
+<pluginRepositories>  
+
+    <pluginRepository>  
+        <id>central</id>  
+        <url>http://42.123.80.190:8081/nexus/content/repositories/central/</url>  
+        <releases><enabled>true</enabled></releases>  
+        <snapshots><enabled>true</enabled></snapshots>  
+    </pluginRepository>  
+
+</pluginRepositories>  
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
