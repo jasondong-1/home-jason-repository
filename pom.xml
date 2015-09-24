@@ -8,6 +8,17 @@
     <artifactId>tagportrait-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    
+<pluginRepositories>  
+
+    <pluginRepository>  
+        <id>central</id>  
+        <url>http://42.123.80.190:8081/nexus/content/repositories/central/</url>  
+        <releases><enabled>true</enabled></releases>  
+        <snapshots><enabled>true</enabled></snapshots>  
+    </pluginRepository>  
+
+</pluginRepositories>  
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,11 +81,48 @@
 
     <!--使用私服-->
     <repositories>
+       <!--
         <repository>
+        
             <id>nexus</id>
             <name>local private nexus</name>
             <url>http://61.172.243.73:3000/maven-web/content/groups/public</url>
         </repository>
+        -->
+        <repository>  
+        <id>central</id>  
+        <url>http://42.123.80.190:8081/nexus/content/repositories/central/</url>  
+        <releases><enabled>true</enabled></releases>  
+        <snapshots><enabled>true</enabled></snapshots>  
+    </repository>  
+
+    <repository>
+        <id>public</id>
+        <url>http://42.123.80.190:8081/nexus/content/repositories/public/</url>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+
+    <repository>
+        <id>thirdparty</id>
+        <url>http://42.123.80.190:8081/nexus/content/repositories/thirdparty/</url>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+
+    <repository>
+        <id>releases</id>
+        <url>http://42.123.80.190:8081/nexus/content/repositories/releases/</url>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+
+    <repository>
+        <id>snapshots</id>
+        <url>http://42.123.80.190:8081/nexus/content/repositories/snapshots/</url>
+        <releases><enabled>true</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+    </repository>
     </repositories>
 
 </project>
