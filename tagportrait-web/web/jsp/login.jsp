@@ -40,9 +40,21 @@
     <script src="${ctxRoot}/static/framework/bootstrap/assets/js/respond.js"></script>
     <![endif]-->
     <script type="text/javascript" src="${ctxRoot}/static/js/jquery-1.8.1.min.js"></script>
+    <style>
+        .widget-body,.widget-main{
+            background: transparent !important;
+        }
+        .position-relative{
+            border: 5px solid #d0d0ff !important;
+        }
+        .lbl{
+            color: #ffffff !important;
+        }
+    </style>
+
 </head>
 
-<body class="login-layout " style="background-image: url('${ctx}/static/images/1.jpg'); background-size:100% 100%; ">
+<body class="login-layout " style="background-image: url('${ctx}/static/images/5.jpg'); background-size:100% 100%; ">
 <div class="main-container">
     <div class="main-content">
         <div class="row">
@@ -58,13 +70,12 @@
                     </div>
 
                     <div class="space-6"></div>
-
                     <div class="position-relative">
                         <div id="login-box" class="login-box visible widget-box no-border">
-                            <div class="widget-body" style="opacity: 0.95">
+                            <div class="widget-body">
                                 <div class="widget-main">
-                                    <h4 class="header blue lighter bigger">
-                                        <i class="ace-icon fa fa-key green"></i>
+                                    <h4 class="header light-blue lighter bigger">
+                                        <i class="ace-icon fa fa-key light-green"></i>
                                         用户登录
                                     </h4>
                                     <div class="space-6"></div>

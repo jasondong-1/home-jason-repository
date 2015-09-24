@@ -14362,7 +14362,7 @@ td .lbl:only-child {
     border-bottom: none;
     box-shadow: none;
     padding: 6px;
-    background-color: #394557;
+    /*background-color: #394557;*/
     -moz-transform: scale(0, 1) translate(-150px);
     -webkit-transform: scale(0, 1) translate(-150px);
     -o-transform: scale(0, 1) translate(-150px);

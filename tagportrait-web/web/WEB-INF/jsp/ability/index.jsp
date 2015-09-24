@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-skins.css">
 
     <link rel="stylesheet" href="${ctxRoot}/static/css/css.css">
-<%--    <script src="${ctxRoot}/static/ztree/js/jquery.ztree.core-3.5.min.js"></script>
-    <script src="${ctxRoot}/static/js/tree.js"></script>--%>
+    <%--    <script src="${ctxRoot}/static/ztree/js/jquery.ztree.core-3.5.min.js"></script>
+        <script src="${ctxRoot}/static/js/tree.js"></script>--%>
 
 
     <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
     <script type="text/javascript">
-        $(function(){
+        $(function () {
             require.config({
                 paths: {
                     echarts: '${ctxRoot}/static/framework/echarts'
@@ -30,76 +30,96 @@
             require(
                     [
                         'echarts',
-                        'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
-                        'echarts/chart/bar'
+                        'echarts/chart/pie',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
                     ],
                     function (ec) {
                         var myChart = ec.init(document.getElementById('main'));
 
                         option = {
-                            title: {
-                                x: 'center',
-                                text: '兴趣标签热度',
-                                subtext: '一级标签热度分布柱状图'
+                            tooltip : {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c} ({d}%)"
                             },
-                            tooltip: {
-                                trigger: 'item'
+                            legend: {
+                                orient : 'vertical',
+                                x : 'left',
+                                data:['直达','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
                             },
                             toolbox: {
-                                show: true,
-                                feature: {
-                                    dataView: {show: true, readOnly: false},
-                                    restore: {show: true},
-                                    saveAsImage: {show: true}
+                                show : true,
+                                feature : {
+                                    dataView : {show: true, readOnly: false},
+                                    restore : {show: true},
+                                    saveAsImage : {show: true}
                                 }
                             },
-                            calculable: true,
-                            grid: {
-                                borderWidth: 0,
-                                y: 80,
-                                y2: 60
-                            },
-                            xAxis: [
+                            calculable : false,
+                            series : [
                                 {
-                                    type: 'category',
-                                    show: false,
-                                    data: ['工具/软件', '娱乐', '电商购物', '资讯', '社交/沟通', '房产', '生活服务', '汽车', '健康', '时尚', '财经']
-                                }
-                            ],
-                            yAxis: [
-                                {
-                                    type: 'value',
-                                    show: false
-                                }
-                            ],
-                            series: [
-                                {
-                                    name: '兴趣标签热度',
-                                    type: 'bar',
-                                    itemStyle: {
-                                        normal: {
-                                            color: function(params) {
-                                                // build a color map as your need.
-                                                var colorList = [
-                                                    '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
-                                                    '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
-                                                    '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
-                                                ];
-                                                return colorList[params.dataIndex]
-                                            },
-                                            label: {
-                                                show: true,
-                                                position: 'top',
-                                                formatter: '{b}\n{c}'
+                                    name:'访问来源',
+                                    type:'pie',
+                                    selectedMode: 'single',
+                                    radius : [0, 100],
+                                    itemStyle : {
+                                        normal : {
+                                            label :
+                                                {
+                                                    position : 'inner',
+                                                    distance:0.75
+                                                }
+                                            ,
+                                            labelLine : {
+                                                show : false
                                             }
                                         }
                                     },
-                                    data: [3,31,29,4,12,5,6,5,5,23,7]
-
+                                    data:[
+                                        {value:335, name:'时尚', selected:true},
+                                        {value:379, name:'健康'},
+                                        {value:148, name:'数码资讯'},
+                                        {value:335, name:'娱乐'},
+                                        {value:379, name:'体育'},
+                                        {value:335, name:'出行'}
+                                    ]
+                                },
+                                {
+                                    name:'访问来源',
+                                    type:'pie',
+                                    radius : [120, 160],
+                                    data:[
+                                        {value:335, name:'直达'},
+                                        {value:310, name:'邮件营销'},
+                                        {value:234, name:'联盟广告'},
+                                        {value:135, name:'视频广告'},
+                                        {value:1048, name:'百度'},
+                                        {value:251, name:'谷歌'},
+                                        {value:147, name:'必应'},
+                                        {value:102, name:'其他'}
+                                    ]
                                 }
                             ]
                         };
-
+                        var ecConfig = require('echarts/config');
+                        myChart.on(ecConfig.EVENT.PIE_SELECTED, function (param){
+                            alert(JSON.stringify(param));
+                            var selected = param.selected;
+                            var serie;
+                            var str = '当前选择： ';
+                            for (var idx in selected) {
+                                serie = option.series[idx];
+                                for (var i = 0, l = serie.data.length; i < l; i++) {
+                                    if (selected[idx][i]) {
+                                        if('0'==idx){
+                                            //把data[i].name 的值传给 查询二级表签的方法
+                                            str += '【系列' + idx + '】' + serie.name + ' : ' +
+                                                    '【数据' + i + '】' + serie.data[i].name + ' ';
+                                        }
+                                    }
+                                }
+                            }
+//                            alert(str);
+                            document.getElementById('wrong-message').innerHTML = str;
+                        })
                         myChart.setOption(option);
                     }
             );
@@ -113,27 +133,25 @@
         <h1>
             平台能力展现
         </h1>
-    </div><!-- /.page-header -->
+    </div>
+    <!-- /.page-header -->
+    <div class="widget-box">
+        <div class="widget-header header-color-blue2">
+            <h4 class="lighter smaller">各级标签热度分布图</h4>
+        </div>
 
-    <div class="col-xs-12">
-        <div class="widget-box">
-            <div class="widget-header header-color-blue2">
-                <h4 class="lighter smaller">各级标签热度分布图</h4>
-            </div>
-
-            <div class="widget-body">
-                <div class="widget-main padding-8">
-                    <div class="mainzuo" style="overflow:auto">
-                        <div id="main" style="height:400px;"></div>
-                    </div>
+        <div class="widget-body">
+            <div class="widget-main padding-8">
+                <div class="mainzuo" style="overflow:auto">
+                    <div id="main" style="height:400px;"></div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-</div><!-- /.row -->
 </div>
+</div>
+<!-- /.row -->
+</div>
+<span id="wrong-message"></span>
 </body>
 </html>
