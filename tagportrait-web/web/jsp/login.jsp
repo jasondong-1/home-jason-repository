@@ -50,10 +50,11 @@
                 <div class="login-container2">
                     <div class="center">
                         <h1>
-                            <i class="ace-icon fa fa-cogs green"></i>
+                            <%--<i class="ace-icon fa fa-cogs green"></i>--%>
+                            <img src="${ctxRoot}/static/images/logo1.png">
                             <span class="white" id="id-text2">精准营销平台</span>
                         </h1>
-                        <h4 class="grey" id="id-company-text">&copy; 上海理想信息产业（集团）有限公司</h4>
+                        <h4 class="grey" id="id-company-text"> 中国电信云计算公司</h4>
                     </div>
 
                     <div class="space-6"></div>
@@ -66,9 +67,7 @@
                                         <i class="ace-icon fa fa-key green"></i>
                                         用户登录
                                     </h4>
-
                                     <div class="space-6"></div>
-
                                     <form action="${ctxRoot}/jsp/login.jsp" method="post">
                                         <fieldset>
                                             <label class="block">
