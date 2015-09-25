@@ -14333,7 +14333,7 @@ td .lbl:only-child {
 }
 .login-container2 {
     width: 375px;
-    margin: 100px auto;
+    margin:50px auto;
 }
 .login-layout {
     background-color: #1D2024;
@@ -14362,12 +14362,15 @@ td .lbl:only-child {
     border-bottom: none;
     box-shadow: none;
     padding: 6px;
-    /*background-color: #394557;*/
+    /*background-color: #ccc;*/
     -moz-transform: scale(0, 1) translate(-150px);
     -webkit-transform: scale(0, 1) translate(-150px);
     -o-transform: scale(0, 1) translate(-150px);
     -ms-transform: scale(0, 1) translate(-150px);
     transform: scale(0, 1) translate(-150px);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; ;
 }
 
 .login-layout .widget-box.visible {

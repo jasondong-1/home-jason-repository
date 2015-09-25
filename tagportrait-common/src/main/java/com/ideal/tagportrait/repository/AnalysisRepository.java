@@ -20,4 +20,9 @@ public interface AnalysisRepository extends JpaRepository<Analysis, Long> {
     public List getAnalysisHeatValueTopByTagIdAndCity(Long tagId,List city);
     @Query(value = "SELECT a.id,a.name,o.heat_value FROM tb_analysis o,tb_area a,tb_tag b WHERE o.area_id=a.id AND o.tag_id=b.id AND tag_id=?1 AND a.id IN (?2) ORDER BY o.heat_value DESC ", nativeQuery = true)
     public List getAnalysisHeatValueByTagIdAndCity(Long tagId,List city);
+    @Query(value = "SELECT b.tag_num,a.name FROM tb_tag a,tb_analysis b,tb_tag c \n" +
+            "WHERE a.level = '2' AND a.parent_id = c.id AND c.level = '1' AND c.name =?1\n" +
+            "AND a.id = b.tag_id AND b.area_id = 1", nativeQuery = true)
+    public List getAnalysisTagNumByTagName(String tagName);
+
 }

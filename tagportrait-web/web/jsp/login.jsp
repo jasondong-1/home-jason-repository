@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta charset="utf-8"/>
     <title>登录</title>
-
     <meta name="description" content="User login page"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
@@ -41,43 +40,51 @@
     <![endif]-->
     <script type="text/javascript" src="${ctxRoot}/static/js/jquery-1.8.1.min.js"></script>
     <style>
-        .widget-body,.widget-main{
+        .widget-body, .widget-main {
             background: transparent !important;
+            /*border: 1px solid #ccc;*/
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;;
         }
-        .position-relative{
-            border: 5px solid #d0d0ff !important;
+        .title{
+            color: #ffffff;
+            font-family: Microsoft YaHei;
         }
-        .lbl{
-            color: #ffffff !important;
+        .block{
+            margin-bottom: 20px;
+        }
+        .form-control{
+            height: 40px;
+        }
+        .login{
+            border-radius:3px !important;
+            height: 40px;
         }
     </style>
-
 </head>
-
-<body class="login-layout " style="background-image: url('${ctx}/static/images/5.jpg'); background-size:100% 100%; ">
+<body class="login-layout " style="background-image: url('${ctx}/static/images/bg.jpg'); background-size:100% 100%; ">
 <div class="main-container">
     <div class="main-content">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
-                <div class="login-container2">
-                    <div class="center">
-                        <h1>
-                            <%--<i class="ace-icon fa fa-cogs green"></i>--%>
-                            <img src="${ctxRoot}/static/images/logo1.png">
-                            <span class="white" id="id-text2">精准营销平台</span>
-                        </h1>
-                        <h4 class="grey" id="id-company-text"> 中国电信云计算公司</h4>
-                    </div>
-
+                <div class="center" style="margin-top: 20px">
+                    <img src="${ctxRoot}/static/images/login-logo2.png">
+                    <img src="${ctxRoot}/static/images/login-title1.png">
+                    <%--<span class="white" id="id-text2">大数据</span>--%>
+                    <%--<h2 class="title">精准营销平台</h2>--%>
+                </div>
+                <div class="login-container">
                     <div class="space-6"></div>
-                    <div class="position-relative">
+                    <div class="position-relative" style="margin-top: 25px">
                         <div id="login-box" class="login-box visible widget-box no-border">
                             <div class="widget-body">
                                 <div class="widget-main">
-                                    <h4 class="header light-blue lighter bigger">
-                                        <i class="ace-icon fa fa-key light-green"></i>
-                                        用户登录
-                                    </h4>
+                                    <%--<h4 class="header blue lighter bigger">--%>
+                                        <%--<i class="ace-icon fa fa-key green"></i>--%>
+                                        <%--用户登录--%>
+                                    <%--</h4>--%>
+
                                     <div class="space-6"></div>
                                     <form action="${ctxRoot}/jsp/login.jsp" method="post">
                                         <fieldset>
@@ -100,15 +107,15 @@
                                             <div class="space"></div>
 
                                             <div class="clearfix">
-                                                <label class="inline">
-                                                    <input type="checkbox" class="ace"/>
-                                                    <span class="lbl">自动登录</span>
-                                                </label>
+                                                <%--<label class="inline">--%>
+                                                    <%--<input type="checkbox" class="ace"/>--%>
+                                                    <%--<span class="lbl">自动登录</span>--%>
+                                                <%--</label>--%>
 
                                                 <button type="button"
-                                                        class="width-35 pull-right btn btn-sm btn-primary btn-white btn-round login"
+                                                        class="width-100  btn btn-sm btn-primary  login"
                                                         onclick="checkForm();">
-                                                    <span class="bigger-110">登录</span>
+                                                    <span class="bigger-120">登录</span>
                                                 </button>
                                             </div>
                                             <%
@@ -144,8 +151,11 @@
 </div>
 <!-- /.main-container -->
 
-<!-- basic scripts -->
+<h6 class="grey" style="position: absolute ;left: 45%;bottom: 30px" id="id-company-text">
+    &copy; 中国电信云公司
+</h6>
 
+<!-- basic scripts -->
 <!--[if !IE]> -->
 <script type="text/javascript">
     window.jQuery || document.write("<script src='${ctxRoot}/static/framework/bootstrap/assets/js/jquery.js'>" + "<" + "/script>");
