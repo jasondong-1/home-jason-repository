@@ -63,14 +63,14 @@ option = {
 function mapCallback(r) {
     //这个不知道怎么写了
     alert(JSON.stringify(r));
-    var type = r['type'];
-    var data = r['data'];
-    var success = r['success'];
-    var series = data['series']
-    option.series = series;
+    //var type = r['type'];
+    //var data = r['data'];
+    //var success = r['success'];
+    //var series = data['series']
+    //option.series = series;
     //option.series[0].itemStyle = itemStyle;
     //option.legend.data=[];
     //option.legend.data.push(series[0].name);
     //option.legend.data = [series[0]['name']];
-    require('echarts').init(document.getElementById('main')).setOption(option);
+    //require('echarts').init(document.getElementById('main')).setOption(option);
 }
