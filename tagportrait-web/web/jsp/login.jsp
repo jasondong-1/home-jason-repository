@@ -61,9 +61,39 @@
             border-radius:3px !important;
             height: 40px;
         }
+/*验证码----------start*/
+        #checkHR {
+            float:left;
+
+        }
+        #checkCode {
+            float:left;
+            width:90px;
+            height:15px;
+            padding: 0px 10px;
+            color:red;
+            font-size:16px;
+            font-family:Arial;
+            font-style:italic;
+            color:Red;
+            border:0;
+            padding:2px 3px;
+            letter-spacing:3px;
+            font-weight:bolder;
+        }
+        .refresh {
+            font-size: 14px;
+            color: red;
+        }
+        .text {
+            font-size: 16px;
+            color: #F00;
+        }
+/*验证码----------end*/
+
     </style>
 </head>
-<body class="login-layout " style="background-image: url('${ctx}/static/images/bg.jpg'); background-size:100% 100%; ">
+<body class="login-layout " style="background-image: url('${ctx}/static/images/bg.jpg'); background-size:100% 100%; " onload="createCode();">
 <div class="main-container">
     <div class="main-content">
         <div class="row">
@@ -103,15 +133,15 @@
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
                                             </label>
-
+                                            <label class="block">
+														<span class="block input-icon input-icon-right">
+															<input type="text"  id="checkNum" name="checkCode" style="height: 40px;width: 200px" placeholder="验证码"/>
+                                                            <a href="javascript:void(0);" style="height: 40px;line-height: 40px"><div id="checkCode" onclick="createCode()";></div></a>
+														</span>
+                                            </label>
                                             <div class="space"></div>
 
                                             <div class="clearfix">
-                                                <%--<label class="inline">--%>
-                                                    <%--<input type="checkbox" class="ace"/>--%>
-                                                    <%--<span class="lbl">自动登录</span>--%>
-                                                <%--</label>--%>
-
                                                 <button type="button"
                                                         class="width-100  btn btn-sm btn-primary  login"
                                                         onclick="checkForm();">
@@ -177,18 +207,46 @@
     function checkForm() {
         var username = $('input[name="username"]').val();
         var password = $('input[name="password"]').val();
-        if (username.length > 0 && password.length > 0) {
+        var inputCode = document.getElementById("checkNum").value.toUpperCase();
+        if(inputCode.length <=0) {
+            alert("请输入验证码！");
+            return false;
+        }
+        else if(inputCode != code ){
+            alert("验证码输入错误！");
+            createCode();
+            return false;
+        }
+       else if (username.length > 0 && password.length > 0 && inputCode==code){
             $('form').submit();
         } else {
             alert("用户名和密码必须填写！");
         }
     }
-
     $(document).keydown(function (event) {
         if (event.keyCode == 13) {
             $(".login").click();
         }
     });
+</script>
+<script language="javascript" type="application/javascript">
+    var code="" ; //在全局 定义验证码
+    function createCode(){
+        code = "";
+        var codeLength = 6;//验证码的长度
+        var checkCode = document.getElementById("checkCode");
+        checkCode.value = "";
+        var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');
+
+        for(var i=0;i<codeLength;i++) {
+            var charIndex = Math.floor(Math.random()*32);
+            code +=selectChar[charIndex];
+        }
+        if(code.length != codeLength){
+            createCode();
+        }
+        document.getElementById("checkCode").innerHTML = code;
+    }
 </script>
 </body>
 </html>
