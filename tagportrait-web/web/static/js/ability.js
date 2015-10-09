@@ -3,6 +3,8 @@
  * @mail 18514733097@189.cn
  * created on 2015/09/24 16:30
  */
+
+//现在option内的data值只是占位用的没有实际意义
 option = {
     tooltip : {
         trigger: 'item',
@@ -71,6 +73,7 @@ var itemStyle = {
         }
     }
 };
+//更新外环圆的数据
 function mapCallback(r) {
     var type = r['type'];
     var data = r['data'];
@@ -78,6 +81,19 @@ function mapCallback(r) {
     var series = data['series'];
     option.series[0].itemStyle = itemStyle;
     option.series[1].data = series[0].data;
+    require('echarts').init(document.getElementById('main')).setOption(option);
+    flushDiagram();
+}
+//加载内环圆的数据
+function mapFirstCallback(r) {
+    alert(JSON.stringify(r));
+    var type = r['type'];
+    var data = r['data'];
+    var success = r['success'];
+    var series = data['series'];
+    option.series[0].itemStyle = itemStyle;
+    option.series[0].data = series[0].data;
+    option.series[0].data[0].selected=true;
     require('echarts').init(document.getElementById('main')).setOption(option);
     flushDiagram();
 }

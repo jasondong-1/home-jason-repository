@@ -32,10 +32,19 @@ public class AbilityController {
         // List<String> names = mainService.findStudentNames();
         //model.addAttribute("hqlList", names);
     }
+    /*外环圆*/
     @RequestMapping("show_tag_chart")
     @ResponseBody
     public JsonObject showChildrenTagChart(String tagName) {
         PieChart pieChart = pieService.getTagData(tagName);
+        JsonObject jsonObject = JsonObject.success(pieChart);
+        return jsonObject;
+    }
+    /*内环圆*/
+    @RequestMapping("show_firstTag_chart")
+    @ResponseBody
+    public JsonObject showTagChart() {
+        PieChart pieChart = pieService.getFirstTagData();
         JsonObject jsonObject = JsonObject.success(pieChart);
         return jsonObject;
     }

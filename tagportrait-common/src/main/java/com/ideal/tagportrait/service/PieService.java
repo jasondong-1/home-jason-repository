@@ -30,7 +30,7 @@ public class PieService {
     public List<PieChart> findAll() {
         return null;
     }
-
+    /* 外环圆*/
     public PieChart getTagData(String tagName) {
         List list = analysisRepository.getAnalysisTagNumByTagName(tagName);
         PieChart pieChart = new PieChart();
@@ -38,10 +38,24 @@ public class PieService {
         SeriesPie pieSeries = new SeriesPie();
         List<PieData> pieDataList = new ArrayList<PieData>();
         for (int i = 0; i < list.size(); i++) {
-
             Object[] paramObj = (Object[]) list.get(i);
-//            String areaName = objects[0].toString();
-//            String area = "全国";
+            PieData pieData = new PieData( Long.valueOf(paramObj[0].toString()),paramObj[1].toString());
+            pieDataList.add(pieData);
+        }
+        pieSeries.setData(pieDataList);
+        pieSeriesList.add(pieSeries);
+        pieChart.setSeries(pieSeriesList);
+        return pieChart;
+    }
+    /*内环圆*/
+    public PieChart getFirstTagData() {
+        List list = analysisRepository.getAnalysisFirstTagNumByTagId();
+        PieChart pieChart = new PieChart();
+        List<SeriesPie> pieSeriesList = new ArrayList<SeriesPie>();
+        SeriesPie pieSeries = new SeriesPie();
+        List<PieData> pieDataList = new ArrayList<PieData>();
+        for (int i = 0; i < list.size(); i++) {
+            Object[] paramObj = (Object[]) list.get(i);
             PieData pieData = new PieData( Long.valueOf(paramObj[0].toString()),paramObj[1].toString());
             pieDataList.add(pieData);
         }
