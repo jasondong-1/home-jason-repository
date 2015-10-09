@@ -35,7 +35,7 @@ public class AbilityController {
     @RequestMapping("show_tag_chart")
     @ResponseBody
     public JsonObject showChildrenTagChart(String tagName) {
-        List<PieChart> pieChart = pieService.getTagData(tagName);
+        PieChart pieChart = pieService.getTagData(tagName);
         JsonObject jsonObject = JsonObject.success(pieChart);
         return jsonObject;
     }

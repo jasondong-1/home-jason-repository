@@ -19,7 +19,7 @@ option = {
     calculable : false,
     series : [
         {
-            name:'访问来源',
+            name:'一级标签',
             type:'pie',
             selectedMode: 'single',
             radius : [0,100],
@@ -44,7 +44,7 @@ option = {
             ]
         },
         {
-            name:'访问来源',
+            name:'二级标签',
             type:'pie',
             radius : [120, 160],
             data:[
@@ -60,17 +60,53 @@ option = {
         }
     ]
 };
+var itemStyle = {
+    normal : {
+        label : {
+            position : 'inner',
+            distance: 0.7
+        },
+        labelLine : {
+            show : false
+        }
+    }
+};
 function mapCallback(r) {
-    //这个不知道怎么写了
-    alert(JSON.stringify(r));
-    //var type = r['type'];
-    //var data = r['data'];
-    //var success = r['success'];
-    //var series = data['series']
-    //option.series = series;
-    //option.series[0].itemStyle = itemStyle;
-    //option.legend.data=[];
-    //option.legend.data.push(series[0].name);
-    //option.legend.data = [series[0]['name']];
-    //require('echarts').init(document.getElementById('main')).setOption(option);
+    var type = r['type'];
+    var data = r['data'];
+    var success = r['success'];
+    var series = data['series'];
+    option.series[0].itemStyle = itemStyle;
+    option.series[1].data = series[0].data;
+    require('echarts').init(document.getElementById('main')).setOption(option);
+    flushDiagram();
+}
+
+function flushDiagram(){
+    var myChart = require('echarts').init(document.getElementById('main'));
+    var ecConfig = require('echarts/config');
+    myChart.on(ecConfig.EVENT.PIE_SELECTED, function (param){
+        var selected = param.selected;
+        var serie;
+        for (var idx in selected) {
+            serie = option.series[idx];
+            for (var i = 0, l = serie.data.length; i < l; i++) {
+                if (selected[idx][i]) {
+                    if('0'==idx){
+                        //遍历里面的圆，先把选中取消
+                        $.each(serie.data,function(i,item){
+                            item.selected=false;
+                        })
+                        var name=serie.data[i].name;
+                        //选中当前点击的项
+                        option.series[0].data[i].selected=true;
+                        var url = 'show_tag_chart.do'
+                        var data = {tagName: name};
+                        X.post(url, data, mapCallback);
+                    }
+                }
+            }
+        }
+    })
+    myChart.setOption(option);
 }

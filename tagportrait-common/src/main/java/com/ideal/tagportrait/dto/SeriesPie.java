@@ -13,7 +13,9 @@ public class SeriesPie  implements Serializable {
     private List<PieData> data;
     private String name;
     public SeriesPie(){}
-
+    public SeriesPie(String name){
+        this.name=name;
+    }
     public String getName() {
         return name;
     }

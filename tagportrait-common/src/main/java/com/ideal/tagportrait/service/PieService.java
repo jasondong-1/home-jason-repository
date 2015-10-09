@@ -31,22 +31,23 @@ public class PieService {
         return null;
     }
 
-    public List getTagData(String tagName) {
+    public PieChart getTagData(String tagName) {
         List list = analysisRepository.getAnalysisTagNumByTagName(tagName);
-//        PieChart pieChart = new PieChart();
-//        List<SeriesPie> pieSeriesList = new ArrayList<SeriesPie>();
-//        SeriesPie pieSeries = null;
-//        List<PieData> pieDataList = new ArrayList<PieData>();
-//        for (int i = 0; i < list.size(); i++) {
-//            String[] paramObj = (String[]) list.get(i);
-////            String areaName = objects[0].toString();
-////            String area = "全国";
-//            PieData pieData = new PieData( Long.valueOf(paramObj[1]),paramObj[0]);
-//            pieDataList.add(pieData);
-//        }
-//        pieSeries.setData(pieDataList);
-//        pieSeriesList.add(pieSeries);
-//        pieChart.setSeries(pieSeriesList);
-        return list;
+        PieChart pieChart = new PieChart();
+        List<SeriesPie> pieSeriesList = new ArrayList<SeriesPie>();
+        SeriesPie pieSeries = new SeriesPie();
+        List<PieData> pieDataList = new ArrayList<PieData>();
+        for (int i = 0; i < list.size(); i++) {
+
+            Object[] paramObj = (Object[]) list.get(i);
+//            String areaName = objects[0].toString();
+//            String area = "全国";
+            PieData pieData = new PieData( Long.valueOf(paramObj[0].toString()),paramObj[1].toString());
+            pieDataList.add(pieData);
+        }
+        pieSeries.setData(pieDataList);
+        pieSeriesList.add(pieSeries);
+        pieChart.setSeries(pieSeriesList);
+        return pieChart;
     }
 }

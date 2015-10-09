@@ -10,12 +10,13 @@ import java.io.Serializable;
  */
 
 public class PieData implements Serializable {
+
+    private Long value;
     private String name;
-    private Long tagNum;
     public PieData(){}
 
-    public  PieData(Long tagNum,String name){
-        this.tagNum = tagNum;
+    public  PieData(Long value,String name){
+        this.value = value;
         this.name = name;
     }
 
@@ -27,11 +28,11 @@ public class PieData implements Serializable {
         this.name = name;
     }
 
-    public Long getTagNum() {
-        return tagNum;
+    public Long getValue() {
+        return value;
     }
 
-    public void setTagNum(Long tagNum) {
-        this.tagNum = tagNum;
+    public void setValue(Long value) {
+        this.value = value;
     }
 }

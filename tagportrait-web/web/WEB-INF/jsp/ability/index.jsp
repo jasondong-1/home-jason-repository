@@ -35,30 +35,10 @@
                         'echarts/chart/pie',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
                     ],
                     function (ec) {
-                        var myChart = ec.init(document.getElementById('main'));
-                        var ecConfig = require('echarts/config');
-                        myChart.on(ecConfig.EVENT.PIE_SELECTED, function (param){
-//                            alert(JSON.stringify(param));
-                            var selected = param.selected;
-                            var serie;
-                            var str = '当前选择： ';
-                            for (var idx in selected) {
-                                serie = option.series[idx];
-                                for (var i = 0, l = serie.data.length; i < l; i++) {
-                                    if (selected[idx][i]) {
-                                        if('0'==idx){
-                                            var name=serie.data[i].name
-                                            alert(name);
-                                            var url = 'show_tag_chart.do'
-                                            var data = {tagName: name};
-                                            X.post(url, data, mapCallback);
-
-                                        }
-                                    }
-                                }
-                            }
-                        })
-                        myChart.setOption(option);
+                        var name="时尚";
+                        var url = 'show_tag_chart.do'
+                        var data = {tagName: name};
+                        X.post(url, data, mapCallback);
                     }
             );
         });
@@ -80,7 +60,7 @@
         <div class="widget-body">
             <div class="widget-main padding-8">
                 <div class="mainzuo" style="overflow:auto">
-                    <div id="main" style="height:400px;"></div>
+                    <div id="main" style="height:600px;"></div>
                 </div>
             </div>
         </div>
@@ -89,6 +69,6 @@
 </div>
 <!-- /.row -->
 </div>
-<span id="wrong-message"></span>
+<%--<span id="wrong-message"></span>--%>
 </body>
 </html>
