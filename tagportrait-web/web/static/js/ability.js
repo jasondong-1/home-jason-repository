@@ -6,6 +6,7 @@
 
 //现在option内的data值只是占位用的没有实际意义
 option = {
+    backgroundColor:'#F2F2F2',
     tooltip : {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c} ({d}%)"

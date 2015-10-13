@@ -33,7 +33,7 @@
     <script src="${ctxRoot}/static/js/ability.js"></script>
     <script type="text/javascript">
 
-       $(function () {
+        $(function () {
             require.config({
                 paths: {
                     echarts: '${ctxRoot}/static/framework/echarts'
@@ -45,14 +45,14 @@
                         'echarts/chart/pie',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
                     ],
                     function (ec) {
-                        var name="体育"; //现在tb_tag表里体育id为27 是最小的，查询是按id正向排序的，如果tb_tag表id变化这里要做相应的调整
+                        var name = "体育"; //现在tb_tag表里体育id为27 是最小的，查询是按id正向排序的，如果tb_tag表id变化这里要做相应的调整
                         var areaId = $("#form-field-select-1").val();
                         var url = 'show_tag_chart.do'
-                        var data = {tagName: name,areaId:areaId};
+                        var data = {tagName: name, areaId: areaId};
                         X.post(url, data, pieCallback);
-                        var data2={areaId:areaId};
-                        var url2='show_firstTag_chart.do';
-                        X.post(url2,data2,pieFirstCallback);
+                        var data2 = {areaId: areaId};
+                        var url2 = 'show_firstTag_chart.do';
+                        X.post(url2, data2, pieFirstCallback);
                     }
             );
         });
@@ -68,31 +68,27 @@
     <!-- /.page-header -->
     <div class="widget-box">
         <div class="widget-header header-color-blue2">
-            <h4 class="lighter smaller">各级标签热度分布图</h4>
+            <h4 class="lighter smaller">标签主题分布图</h4>
         </div>
-
         <div class="widget-body">
             <div class="widget-main padding-8">
-                <div>
+                <div class="col-xs-10 col-xs-offset-1">
                     城市: <select class="width-14 chosen-select" id="form-field-select-1">
-                        <c:forEach var="item" items="${areaList}">
-                            <option value="${item.id}">${item.name}</option>
-                        </c:forEach>
-                    </select>
-
+                    <c:forEach var="item" items="${areaList}">
+                        <option value="${item.id}">${item.name}</option>
+                    </c:forEach>
+                </select>
                     <button class="btn btn-sm btn-info"
                             style="width: 80px;" onclick="onClick()">查 询
                     </button>
                 </div>
-                <div class="mainzuo" style="overflow:auto">
-                    <div id="main" style="height:500px;"></div>
-                </div>
             </div>
         </div>
+        <div class="col-xs-10 col-xs-offset-1">
+            <div id="main" style="width: 100%;height: 500px;border: 1px solid #F2F2F2;margin: 10px auto;"></div>
+        </div>
+
     </div>
-</div>
-</div>
-<!-- /.row -->
 </div>
 <%--<span id="wrong-message"></span>--%>
 </body>
