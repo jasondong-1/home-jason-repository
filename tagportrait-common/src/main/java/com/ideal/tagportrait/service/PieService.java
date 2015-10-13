@@ -31,8 +31,8 @@ public class PieService {
         return null;
     }
     /* 外环圆*/
-    public PieChart getTagData(String tagName) {
-        List list = analysisRepository.getAnalysisTagNumByTagName(tagName);
+    public PieChart getTagData(String tagName,Long areaId) {
+        List list = analysisRepository.getAnalysisTagNumByTagName(tagName,areaId);
         PieChart pieChart = new PieChart();
         List<SeriesPie> pieSeriesList = new ArrayList<SeriesPie>();
         SeriesPie pieSeries = new SeriesPie();
@@ -48,8 +48,8 @@ public class PieService {
         return pieChart;
     }
     /*内环圆*/
-    public PieChart getFirstTagData() {
-        List list = analysisRepository.getAnalysisFirstTagNumByTagId();
+    public PieChart getFirstTagData(Long areaId) {
+        List list = analysisRepository.getAnalysisFirstTagNumByTagId(areaId);
         PieChart pieChart = new PieChart();
         List<SeriesPie> pieSeriesList = new ArrayList<SeriesPie>();
         SeriesPie pieSeries = new SeriesPie();

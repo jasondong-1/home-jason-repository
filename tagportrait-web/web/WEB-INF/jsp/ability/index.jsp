@@ -6,19 +6,29 @@
     <title>homepage</title>
     <!-- basic styles -->
     <link href="${ctxRoot}/static/framework/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/font-awesome.css">
-    <!-- fonts -->
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-fonts.css">
-    <!-- ace styles -->
+
+    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/chosen.css"/>
     <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace.css">
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-rtl.css">
-    <link rel="stylesheet" href="${ctxRoot}/static/framework/bootstrap/assets/css/ace-skins.css">
 
     <link rel="stylesheet" href="${ctxRoot}/static/css/css.css">
+
     <%--    <script src="${ctxRoot}/static/ztree/js/jquery.ztree.core-3.5.min.js"></script>
         <script src="${ctxRoot}/static/js/tree.js"></script>--%>
 
+    <link rel="stylesheet" type="text/css" href="${ctxRoot}/static/css/jquery-ui.css"/>
+    <style>
+        .chosen-container {
+            margin-right: 15px;
+        }
 
+        .widget-box {
+            border: 0px;
+        }
+    </style>
+    <script type="text/javascript" src="${ctxRoot}/static/framework/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="${ctxRoot}/static/framework/ui/jquery.ui.widget.js"></script>
+
+    <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
     <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
     <script src="${ctxRoot}/static/js/ability.js"></script>
     <script type="text/javascript">
@@ -36,12 +46,13 @@
                     ],
                     function (ec) {
                         var name="体育"; //现在tb_tag表里体育id为27 是最小的，查询是按id正向排序的，如果tb_tag表id变化这里要做相应的调整
+                        var areaId = $("#form-field-select-1").val();
                         var url = 'show_tag_chart.do'
-                        var data = {tagName: name};
-                        X.post(url, data, mapCallback);
-                        var data2={};
+                        var data = {tagName: name,areaId:areaId};
+                        X.post(url, data, pieCallback);
+                        var data2={areaId:areaId};
                         var url2='show_firstTag_chart.do';
-                        X.post(url2,data2,mapFirstCallback);
+                        X.post(url2,data2,pieFirstCallback);
                     }
             );
         });
@@ -62,8 +73,19 @@
 
         <div class="widget-body">
             <div class="widget-main padding-8">
+                <div>
+                    城市: <select class="width-14 chosen-select" id="form-field-select-1">
+                        <c:forEach var="item" items="${areaList}">
+                            <option value="${item.id}">${item.name}</option>
+                        </c:forEach>
+                    </select>
+
+                    <button class="btn btn-sm btn-info"
+                            style="width: 80px;" onclick="onClick()">查 询
+                    </button>
+                </div>
                 <div class="mainzuo" style="overflow:auto">
-                    <div id="main" style="height:600px;"></div>
+                    <div id="main" style="height:500px;"></div>
                 </div>
             </div>
         </div>

@@ -73,8 +73,11 @@ var itemStyle = {
         }
     }
 };
+$(function () {
+    $(".chosen-select").chosen();
+});
 //更新外环圆的数据
-function mapCallback(r) {
+function pieCallback(r) {
     var type = r['type'];
     var data = r['data'];
     var success = r['success'];
@@ -85,8 +88,8 @@ function mapCallback(r) {
     flushDiagram();
 }
 //加载内环圆的数据
-function mapFirstCallback(r) {
-    alert(JSON.stringify(r));
+function pieFirstCallback(r) {
+    //alert(JSON.stringify(r));
     var type = r['type'];
     var data = r['data'];
     var success = r['success'];
@@ -97,7 +100,19 @@ function mapFirstCallback(r) {
     require('echarts').init(document.getElementById('main')).setOption(option);
     flushDiagram();
 }
+//查询按钮点击事件
+function onClick() {
+    var areaId = $("#form-field-select-1").val();
+    var url1 = 'show_firstTag_chart.do';
+    var data1 = {areaId: areaId};
+    X.post(url1, data1, pieFirstCallback);
 
+    var name="体育"; //现在tb_tag表里体育id为27 是最小的，查询是按id正向排序的，如果tb_tag表id变化这里要做相应的调整
+    var areaId = $("#form-field-select-1").val();
+    var url2 = 'show_tag_chart.do'
+    var data2 = {tagName: name,areaId:areaId};
+    X.post(url2, data2, pieCallback);
+}
 function flushDiagram(){
     var myChart = require('echarts').init(document.getElementById('main'));
     var ecConfig = require('echarts/config');
@@ -116,9 +131,10 @@ function flushDiagram(){
                         var name=serie.data[i].name;
                         //选中当前点击的项
                         option.series[0].data[i].selected=true;
-                        var url = 'show_tag_chart.do'
-                        var data = {tagName: name};
-                        X.post(url, data, mapCallback);
+                        var url = 'show_tag_chart.do';
+                        var areaId = $("#form-field-select-1").val();
+                        var data = {tagName: name,areaId:areaId};
+                        X.post(url, data, pieCallback);
                     }
                 }
             }
@@ -126,3 +142,4 @@ function flushDiagram(){
     })
     myChart.setOption(option);
 }
+
