@@ -33,7 +33,7 @@ option = {
                         distance: 0.7
                     },
                     labelLine: {
-                        show: false
+                        show: false,
                     }
                 }
             },
@@ -67,9 +67,9 @@ var itemStyle = {
     normal: {
         label: {
             position: 'outer',
-            distance:0.7,
-            textStyle:{
-                color:'#ffffff'
+            distance: 0.7,
+            textStyle: {
+                color: '#ffffff'
             }
         },
         labelLine: {
@@ -86,7 +86,6 @@ function pieCallback(r) {
     var data = r['data'];
     var success = r['success'];
     var series = data['series'];
-    //option.series[0].itemStyle = itemStyle;
     option.series[1].data = series[0].data;
     require('echarts').init(document.getElementById('main')).setOption(option);
     flushDiagram();

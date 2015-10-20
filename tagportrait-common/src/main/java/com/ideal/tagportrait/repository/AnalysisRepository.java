@@ -24,6 +24,6 @@ public interface AnalysisRepository extends JpaRepository<Analysis, Long> {
             "WHERE a.level = '2' AND a.parent_id = c.id AND c.level = '1' AND c.name =?1\n" +
             "AND a.id = b.tag_id AND b.area_id = ?2", nativeQuery = true)
     public List getAnalysisTagNumByTagName(String tagName,Long areaId);
-    @Query(value = "SELECT a.tag_num,t.name FROM tb_analysis a,tb_tag t,tb_tag c WHERE t.id = a.tag_id AND a.tag_id IN (562,556,27,124,475,496) AND a.area_id=?1 AND t.parent_id=0 AND c.id=t.id ORDER BY t.id ", nativeQuery = true)
+    @Query(value = "SELECT a.tag_num,t.name FROM tb_analysis a,tb_tag t,tb_tag c WHERE t.id = a.tag_id AND a.tag_id IN (1,526,124,100,516,496) AND a.area_id=?1 AND t.parent_id=0 AND c.id=t.id ORDER BY t.id ", nativeQuery = true)
     public List getAnalysisFirstTagNumByTagId(Long areaId);
 }

@@ -31,6 +31,29 @@
     <script src="${ctxRoot}/static/framework/bootstrap/assets/js/chosen.jquery.js"></script>
     <script src="${ctxRoot}/static/framework/echarts/echarts.js"></script>
     <script src="${ctxRoot}/static/js/ability.js"></script>
+    <style>
+        .ss{
+            color: #ff7f50;
+            color: #87cefa;
+            color: #da70d6;
+            color: #32cd32;
+            color: #6495ed;
+            color: #1e90ff;
+            color: #b8860b;
+            color: #30e0e0;
+            color: #6b8e23;
+            color: #ff00ff;
+            color: #3cb371;
+            color: #ff00ff;
+            color: #40e0d0;
+            color: #7b68ee;
+            color: #00fa9a;
+        '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
+        '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0',
+        '#1e90ff', '#ff6347', '#7b68ee', '#00fa9a', '#ffd700',
+        '#6b8e23', '#ff00ff', '#3cb371', '#b8860b', '#30e0e0'
+        }
+    </style>
     <script type="text/javascript">
 
         $(function () {
@@ -45,7 +68,7 @@
                         'echarts/chart/pie',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
                     ],
                     function (ec) {
-                        var name = "体育"; //现在tb_tag表里体育id为27 是最小的，查询是按id正向排序的，如果tb_tag表id变化这里要做相应的调整
+                        var name = "文化教育"; //现在tb_tag表里体育id为27 是最小的，查询是按id正向排序的，如果tb_tag表id变化这里要做相应的调整
                         var areaId = $("#form-field-select-1").val();
                         var url = 'show_tag_chart.do'
                         var data = {tagName: name, areaId: areaId};
