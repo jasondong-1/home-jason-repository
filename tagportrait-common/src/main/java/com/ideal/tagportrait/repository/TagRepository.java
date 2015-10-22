@@ -17,10 +17,12 @@ public interface TagRepository extends JpaRepository<Tag, Long> {
     @Query(value = "SELECT o.id,o.name,a.tag_num,o.leaf_flag FROM tb_tag o,tb_analysis a WHERE o.id = a.tag_id AND o.parent_id=?1 AND a.area_id=?2", nativeQuery = true)
     public List getTagTreeByIdAndArea(String id, Long areaId);
 
-    @Query(value = "SELECT o.id,o.name,a.tag_num FROM tb_tag o,tb_analysis a WHERE o.id = a.tag_id AND o.parent_id=?1 AND a.area_id=?2 order by a.tag_num desc limit 5", nativeQuery = true)
+    @Query(value = "SELECT o.id,o.name,a.tag_num ,o.level FROM tb_tag o,tb_analysis a WHERE o.id = a.tag_id AND o.parent_id=?1 AND a.area_id=?2 order by a.tag_num desc limit 5", nativeQuery = true)
     public List getChildrenTagData(String tagId, Long areaId);
 
     List<Tag> findByLevel(Long level);
 
     List<Tag> findByLevelAndParentId(Long level, Long parentId);
+    @Query(value = "SELECT o.id,o.name,a.tag_num  FROM tb_tag o,tb_analysis a WHERE o.id = a.tag_id AND o.id=?1 AND a.area_id=?2 ", nativeQuery = true)
+    public List getThirdTagData(String id, Long areaId);
 }

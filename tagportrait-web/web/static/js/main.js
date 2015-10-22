@@ -51,10 +51,15 @@ var itemStyle = {
 };
 
 function onClick(event, treeId, treeNode) {
-    var url = 'show_tag_chart.do';
     var areaId = $("#form-field-select-1").val();
     var data = {tagId: treeNode.id, areaId: areaId};
-    X.post(url, data, treeClickCallback);
+    var url = 'show_tag_chart.do';
+    var url3 = 'show_thirdTag_chart.do';
+    if(!treeNode.isParent){
+        X.post(url3, data, treeClickCallback);
+    }else{
+        X.post(url, data, treeClickCallback);
+    }
     var url2='query_tag_description.do';
     X.post(url2, data, descriptionCallback);
 }

@@ -59,7 +59,13 @@ public class MainController extends BaseController {
         JsonObject jsonObject = JsonObject.success(barChart);
         return jsonObject;
     }
-
+    @RequestMapping("show_thirdTag_chart")
+    @ResponseBody
+    public JsonObject showthirdTagChart(String tagId, Long areaId) {
+        BarChart barChart = mainService.getThirdTagData(tagId, areaId);
+        JsonObject jsonObject = JsonObject.success(barChart);
+        return jsonObject;
+    }
     @RequestMapping("save_tag_description")
     @ResponseBody
     public JsonObject saveTagDescription(String tagId, String description) {

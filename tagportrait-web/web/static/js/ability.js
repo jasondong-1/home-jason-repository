@@ -49,7 +49,7 @@ option = {
         {
             name: '二级标签',
             type: 'pie',
-            radius: [120, 180],
+            radius: [160, 220],
             data: [
                 {value: 335, name: '直达'},
                 {value: 310, name: '邮件营销'},
@@ -67,13 +67,14 @@ var itemStyle = {
     normal: {
         label: {
             position: 'outer',
-            distance: 0.7,
             textStyle: {
-                color: '#ffffff'
+               fontSize:14,
+                fontWeight:'bold'
             }
         },
         labelLine: {
-            show: true
+            show: true,
+            length:8
         }
     }
 };
