@@ -685,6 +685,9 @@ pre.prettyprint {
 .width-15{
     width: 15%;!important;
 }
+.width-16{
+    width: 16%;!important;
+}
 .width-20 {
     width: 20% !important;
 }
@@ -12168,7 +12171,6 @@ td .lbl:only-child {
         margin-bottom: 7px;
     }
 }
-
 .widget-header {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;

@@ -49,10 +49,11 @@
                 noneSelectedText: "北京",
                 checkAllText: '全选',
                 uncheckAllText: '全不选',
-                selectedList: 4,
-                minWidth: 136
+                selectedList: 2,
+                minWidth: 90
             });
         });
+
     </script>
 </head>
 <body>
@@ -68,15 +69,15 @@
 
             <%--<form class="form-horizontal" role="form">--%>
             <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 ">
-                    <div class="widget-box">
-                        <div class="widget-body">
+                <div style="width: 95%;margin: 0 auto;padding-left: 2.5%">
+                    <div class="widget-box" >
+                        <div class="widget-body" >
                             <div class="widget-main">
                                 <div>
                                     一级标签：
                                     <select class="width-14 chosen-select" id="form-field-select-1"
                                             onchange="onFirstChange()">
-                                        <option value="0">无内容</option>
+                                        <%--<option value="0">待选择上级标签</option>--%>
                                         <c:forEach var="item" items="${tagFirstList}">
                                             <option value="${item.id}"
                                                     <c:if test="${item.id=='1'}">selected="selected"</c:if> >${item.name}</option>
@@ -85,12 +86,12 @@
                                     二级标签：
                                     <select class="width-14 chosen-select" id="form-field-select-2"
                                             onchange="onSecondChange()">
-                                        <option value="0">无内容</option>
+                                        <option value="0">待选择上级标签</option>
                                     </select>
                                     三级标签：
                                     <select class="width-14 chosen-select" id="form-field-select-3">
                                         <%--<option value="">&nbsp;</option>--%>
-                                        <option value="0">无内容</option>
+                                        <option value="0">待选择上级标签</option>
                                     </select>
                                     城市: <select name="" size="6" class="select_s" multiple="multiple"
                                                 id="cmbCity">
@@ -101,7 +102,7 @@
                                     </c:forEach>
                                 </select>
                                     <button class="btn btn-sm btn-info"
-                                            style="width: 80px;float: right" onclick="onClick()">查 询
+                                            style="width: 80px; margin-left: 20px;" onclick="onClick()">查 询
                                     </button>
                                 </div>
                             </div>

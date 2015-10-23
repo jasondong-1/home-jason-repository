@@ -92,9 +92,9 @@
                             <div class="widget-main">
                                 <div>
                                     一级标签：
-                                    <select class="width-15 chosen-select" id="form-field-select-1"
+                                    <select class="width-16 chosen-select" id="form-field-select-1"
                                             onchange="onFirstChange()">
-                                        <option value="0">无内容</option>
+                                        <%--<option value="0">待选择上级标签</option>--%>
                                         <c:forEach var="item" items="${tagFirstList}">
                                             <option value="${item.id}"
                                                     <c:if test="${item.id=='1'}">selected="selected"</c:if> >${item.name}</option>
@@ -104,15 +104,15 @@
                                         <%--</c:forEach>--%>
                                     </select>
                                     二级标签：
-                                    <select class="width-15 chosen-select" id="form-field-select-2"
+                                    <select class="width-16 chosen-select" id="form-field-select-2"
                                             onchange="onSecondChange()">
-                                        <option value="0">无内容</option>
+                                        <option value="0">待选择上级标签</option>
                                     </select>
                                     三级标签：
-                                    <select class="width-15 chosen-select" id="form-field-select-3"
+                                    <select class="width-16 chosen-select" id="form-field-select-3"
                                             >
                                         <%--<option value="">&nbsp;</option>--%>
-                                        <option value="0">无内容</option>
+                                        <option value="0">待选择上级标签</option>
                                     </select>
                                     <button class="btn btn-sm btn-info"
                                             style="width: 80px;float: right" id="btnSearch">查 询
@@ -124,7 +124,7 @@
                 </div>
                 <div class="col-xs-10 col-xs-offset-1">
                     <div id="map"
-                         style="width: 100%;height: 500px;border: 1px solid #d0d0d0;margin: 0px auto"></div>
+                         style="width: 100%;height: 500px;border: 1px solid #d0d0d0;margin: 0px auto;padding: 10px"></div>
                 </div>
 
             </div>

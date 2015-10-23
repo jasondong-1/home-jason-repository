@@ -73,12 +73,12 @@ function callback_first(r) {
         if (0 == first) {
             $("#form-field-select-2").empty();
             $("#form-field-select-3").empty();
-            $("#form-field-select-2").append("<option value=\"0\" selected=\"selected\">无内容</option>");
-            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">无内容</option>");
+            $("#form-field-select-2").append("<option value=\"0\" selected=\"selected\">待选择上级标签</option>");
+            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">待选择上级标签</option>");
         } else {
             $("#form-field-select-2").empty();
             $("#form-field-select-3").empty();
-            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">无内容</option>");
+            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">待选择上级标签</option>");
             $("#form-field-select-2").append("<option value=\"0\" selected=\"selected\">请选择</option>");
             for (var i = 0; i < data.length; i++) {
                 var item = data[i];
@@ -104,7 +104,7 @@ function callback_second(r) {
         var second = $("#form-field-select-2").val();
         if (0 == second) {
             $("#form-field-select-3").empty();
-            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">无内容</option>");
+            $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">待选择上级标签</option>");
         } else {
             $("#form-field-select-3").empty();
             $("#form-field-select-3").append("<option value=\"0\" selected=\"selected\">请选择</option>");

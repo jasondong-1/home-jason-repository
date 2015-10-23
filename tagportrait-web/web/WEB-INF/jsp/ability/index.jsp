@@ -85,7 +85,7 @@
 <div class="page-content">
     <div class="page-header">
         <h1>
-            平台能力展现
+            标签主题展示
         </h1>
     </div>
     <!-- /.page-header -->

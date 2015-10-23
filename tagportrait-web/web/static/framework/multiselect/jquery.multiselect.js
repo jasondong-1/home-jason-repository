@@ -34,7 +34,7 @@
       checkAllText: 'Check all',
       uncheckAllText: 'Uncheck all',
       noneSelectedText: 'Select options',
-      selectedText: '# selected',
+      selectedText: '已选# ',
       selectedList: 0,
       show: null,
       hide: null,
@@ -63,10 +63,9 @@
         .attr({ 'title':el.attr('title'), 'aria-haspopup':true, 'tabIndex':el.attr('tabIndex') })
         .insertAfter(el),
 
-        buttonlabel = (this.buttonlabel = $('<span />'))
+        buttonlabel = (this.buttonlabel = $('<span/>'))
           .html(o.noneSelectedText)
           .appendTo(button),
-
         menu = (this.menu = $('<div />'))
           .addClass('ui-multiselect-menu ui-widget ui-widget-content ui-corner-all')
           .addClass(o.classes)
