@@ -49,6 +49,9 @@ public class HotService {
         return tagRepository.findByLevelAndParentId(3L, secondTagId);
     }
 
+    public List<Tag> findFourthTags(Long secondTagId) {
+        return tagRepository.findByLevelAndParentId(4L, secondTagId);
+    }
     public List<AnalysisDto> findHeartValueAndCity(Long id,String city) {
         List<Long> areaids = Lists.newArrayList();
         for(String s : city.split(",")) {

@@ -59,7 +59,16 @@ public class HotController extends BaseController {
         JsonObject jsonObject = JsonObject.success(thirdTagList);
         return jsonObject;
     }
-
+    
+    @RequestMapping("index_for")
+    @ResponseBody
+    public JsonObject fors(String id) {
+        logger.debug(String.format("id:%s",id));
+        List<Tag> thirdTagList = hotService.findFourthTags(Long.parseLong(id));
+        JsonObject jsonObject = JsonObject.success(thirdTagList);
+        return jsonObject;
+    }
+    
     @RequestMapping("index_heartValueAndCity")
     @ResponseBody
     public JsonObject heartValueAndCity(String id,String city) {

@@ -48,6 +48,26 @@ public class MainService {
         return treeNodeList;
     }
 
+    public List<TreeNode> getTagTree2(String id, Long areaId) {
+        List<TreeNode> treeNodeList = new ArrayList<TreeNode>();
+        if (StringUtils.isBlank(id)) {
+            id = "0";
+        }
+        logger.info(String.format("id:%s", id));
+        List list = tagRepository.getTagTreeByIdAndArea(id, areaId);
+        for (int i=0; i<list.size(); i++) {
+            Object[] objects = (Object[]) list.get(i);
+
+            String tagId = objects[0].toString();
+            String name = objects[1].toString();
+            boolean leafFlag = Boolean.parseBoolean(objects[3].toString());
+            //logger.debug("leafFlag:" + leafFlag);
+            TreeNode treeNode = new TreeNode(tagId, id, name, !leafFlag);
+            treeNodeList.add(treeNode);
+        }
+        return treeNodeList;
+    }
+
 
     public BarChart getChildrenTagData(String tagId, Long areaId) {
         BarChart barChart = new BarChart();
