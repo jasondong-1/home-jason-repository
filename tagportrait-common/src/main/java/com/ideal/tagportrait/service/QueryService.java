@@ -86,9 +86,4 @@ public class QueryService {
         final String SEPARATOR_MEID="_MEID_";
         public abstract void getValue(List<String> mdmes,String record);
     }
-
-    public static void main(String[] args) {
-        String ss="aaaa+a1213";
-        System.out.println(Arrays.toString(ss.split("\\+")));
-    }
 }

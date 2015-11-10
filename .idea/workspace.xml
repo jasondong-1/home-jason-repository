@@ -7,23 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc3115de-7818-41b8-93ef-fd40bd03588e" name="Default" comment="平台能力展示页面修改">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/jsp/capacity/index.jsp" />
-      <change type="DELETED" beforePath="E:\workspace\product-pm-tagportrait\tagportrait-web\src\main\java\com\ideal\tagportrait\web\controller\dist\DistController.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/entity/Area.java" afterPath="$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/entity/Area.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/src/main/java/com/ideal/tagportrait/web/controller/hot/HotController.java" afterPath="$PROJECT_DIR$/tagportrait-web/src/main/java/com/ideal/tagportrait/web/controller/hot/HotController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/service/HotService.java" afterPath="$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/service/HotService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/service/MainService.java" afterPath="$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/service/MainService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/src/main/resources/config/spring/config.properties" afterPath="$PROJECT_DIR$/tagportrait-web/src/main/resources/config/spring/config.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/src/main/resources/config/spring/datasource-context.xml" afterPath="$PROJECT_DIR$/tagportrait-web/src/main/resources/config/spring/datasource-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/decorators.xml" afterPath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/decorators.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/web/static/js/dist.js" afterPath="$PROJECT_DIR$/tagportrait-web/web/static/js/dist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/web/static/js/hot.js" afterPath="$PROJECT_DIR$/tagportrait-web/web/static/js/hot.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/jsp/ability/index.jsp" afterPath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/jsp/ability/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/jsp/dist/index.jsp" afterPath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/jsp/dist/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/jsp/hot/index.jsp" afterPath="$PROJECT_DIR$/tagportrait-web/web/WEB-INF/jsp/hot/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/src/main/resources/config/spring/security-context.xml" afterPath="$PROJECT_DIR$/tagportrait-web/src/main/resources/config/spring/security-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-web/web/static/js/tree.js" afterPath="$PROJECT_DIR$/tagportrait-web/web/static/js/tree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/service/QueryService.java" afterPath="$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/service/QueryService.java" />
     </list>
     <ignored path="product-pm-tagportrait.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,14 +40,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DistController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DistController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tagportrait-web/src/main/java/com/ideal/tagportrait/web/controller/dist/DistController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="2.1016166">
               <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,17 +64,17 @@
         <entry file="file://$PROJECT_DIR$/tagportrait-web/src/main/java/com/ideal/tagportrait/web/controller/hot/HotController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QueryService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="QueryService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/service/QueryService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69014084">
-              <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -340,6 +322,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="product-pm-tagportrait" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="product-pm-tagportrait" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="product-pm-tagportrait" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -877,7 +869,7 @@
       <workItem from="1446792671628" duration="1238000" />
       <workItem from="1447051613184" duration="4544000" />
       <workItem from="1447059217139" duration="4586000" />
-      <workItem from="1447118789148" duration="5694000" />
+      <workItem from="1447118789148" duration="7132000" />
     </task>
     <task id="LOCAL-00001" summary="错误页面 404  505 修改">
       <created>1441885576215</created>
@@ -1093,11 +1085,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389951000" />
+    <option name="totallyTimeSpent" value="391389000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28156996" sideWeight="0.45461422" order="13" side_tool="false" content_ui="tabs" />
@@ -1107,11 +1099,11 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.278157" sideWeight="0.4969743" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.054462936" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6362153" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3447099" sideWeight="0.8880484" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21160409" sideWeight="0.8880484" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29727685" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18759455" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1535,24 +1527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tagportrait-web/src/main/java/com/ideal/tagportrait/web/controller/dist/DistController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tagportrait-web/src/main/java/com/ideal/tagportrait/web/controller/hot/HotController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/util/FilterParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1588,14 +1562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tagportrait-web/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tagportrait-web/web/WEB-INF/jsp/capacity/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.171429">
@@ -1612,10 +1578,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tagportrait-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tagportrait-common/src/main/java/com/ideal/tagportrait/service/QueryService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69014084">
-          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="9" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tagportrait-web/src/main/java/com/ideal/tagportrait/web/controller/hot/HotController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tagportrait-web/src/main/java/com/ideal/tagportrait/web/controller/dist/DistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1016166">
+          <caret line="50" column="40" selection-start-line="50" selection-start-column="40" selection-end-line="50" selection-end-column="40" />
           <folding />
         </state>
       </provider>
