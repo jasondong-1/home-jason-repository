@@ -38,7 +38,7 @@ public class QueryService {
     public void queryResult(HashSet<String> rs, FilterParser parser, String city,FUN fun) {
         FilterParser.Rule rule = parser.getNextRule();
         String tag = parser.getNext().trim();
-        DBCollection collection = mongoManager.getCollection("tagAd");
+        DBCollection collection = mongoManager.getCollection("adTag_ciphertext");
         BasicDBObject object = new BasicDBObject("city", city).append("tag", tag);
         BasicDBObject k1 = new BasicDBObject("ads", 1);
         DBObject one = collection.findOne(object, k1);
