@@ -19,11 +19,11 @@ public class FilterParser {
         filterArray = this.filterStr.split(RULE_REGEX);
     }
 
-    public String getNext() {
+    public Long getNext() {
         String f = filterArray[filterIndex];
         filterIndex++;
         charIndex += f.length() + 1;
-        return f;
+        return Long.valueOf(f);
     }
 
     public boolean hasNext() {

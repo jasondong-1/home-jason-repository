@@ -1,10 +1,13 @@
 package com.ideal.tagportrait.service;
 
 import com.ideal.tagportrait.dto.PageModel;
+import com.ideal.tagportrait.entity.Tag;
+import com.ideal.tagportrait.repository.TagRepository;
 import com.ideal.tagportrait.util.FilterParser;
 import com.ideal.tagportrait.util.MongoManager;
 import com.mongodb.*;
 import com.mongodb.util.Hash;
+import com.sun.javafx.binding.StringFormatter;
 import org.bson.BSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +27,8 @@ public class QueryService {
     private Logger logger = LoggerFactory.getLogger(QueryService.class);
     @Resource
     private MongoManager mongoManager;
+    @Resource
+    private TagRepository tagRepository;
 
     public PageModel query(String filter, String city,int resultType) {
         Assert.hasLength(filter, "---过滤条件不能为空---");
@@ -37,7 +42,10 @@ public class QueryService {
 
     public void queryResult(HashSet<String> rs, FilterParser parser, String city,FUN fun) {
         FilterParser.Rule rule = parser.getNextRule();
-        String tag = parser.getNext().trim();
+        Long tagId = parser.getNext();
+        LinkedList tags=new LinkedList<String>();
+        getTagPath(tags,tagId);
+        String tag=ListToString(tags);
         DBCollection collection = mongoManager.getCollection("adTag_ciphertext");
         BasicDBObject object = new BasicDBObject("city", city).append("tag", tag);
         BasicDBObject k1 = new BasicDBObject("ads", 1);
@@ -86,4 +94,30 @@ public class QueryService {
         final String SEPARATOR_MEID="_MEID_";
         public abstract void getValue(List<String> mdmes,String record);
     }
+
+    private void getTagPath(LinkedList path, Long tagId){
+        Tag tag = tagRepository.findOne(tagId);
+        if (tag==null) throw new RuntimeException(String.format("***找不到此tag:%d***",tagId));
+        path.addFirst(tag.getName());
+        if(tag.getParentId()!=null&&tag.getParentId()!=0){
+            getTagPath(path,tag.getParentId());
+        }
+    }
+
+    public static String ListToString(List<String> ls){
+        if(ls==null||ls.isEmpty())return "";
+        StringBuilder stringBuilder=new StringBuilder();
+        for (String s:ls){
+            if(s!=null&&!s.isEmpty()){
+                stringBuilder.append(s.trim());
+                stringBuilder.append(',');
+            }
+        }
+        if(stringBuilder.length()>0){
+            return stringBuilder.replace(stringBuilder.lastIndexOf(","),stringBuilder.length(),"").toString();
+        }else{
+            return "";
+        }
+    }
+
 }
