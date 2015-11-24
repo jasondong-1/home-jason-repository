@@ -35,13 +35,13 @@
             $("#btnSearch").click(function () {
                 var city =  $("#form-field-select-1").find("option:selected").val();
                 var resultType =  $("#form-field-select-4").find("option:selected").val();
-                var filter = $("#txt").text();
+                var filter = $("#txtId").text();
                 var url = 'query.do';
                 var data = {city: city,filter:filter,resultType:resultType};
                 X.post(url, data, searchCallback);
             });
-            $("#parent").on('click','.active-result',function () {
-                onChange(this);
+            $("#parent").on('click','#form_field_select_3_chosen .active-result',function () {
+                onChange();
             });
         });
     </script>

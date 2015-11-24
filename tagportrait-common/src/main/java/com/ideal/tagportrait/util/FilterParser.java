@@ -23,7 +23,7 @@ public class FilterParser {
         String f = filterArray[filterIndex];
         filterIndex++;
         charIndex += f.length() + 1;
-        return Long.valueOf(f);
+        return Long.valueOf(f.trim());
     }
 
     public boolean hasNext() {
