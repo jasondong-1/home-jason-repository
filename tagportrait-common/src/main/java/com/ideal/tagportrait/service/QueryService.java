@@ -6,18 +6,13 @@ import com.ideal.tagportrait.repository.TagRepository;
 import com.ideal.tagportrait.util.FilterParser;
 import com.ideal.tagportrait.util.MongoManager;
 import com.mongodb.*;
-import com.mongodb.util.Hash;
-import com.sun.javafx.binding.StringFormatter;
-import org.bson.BSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
-import java.net.UnknownHostException;
 import java.util.*;
-import java.util.regex.Pattern;
 
 /**
  * Created by zhou on 2015/10/29.
