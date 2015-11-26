@@ -150,7 +150,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <webappDirectory>../out</webappDirectory>
-                    <warSourceDirectory>webapp</warSourceDirectory>
+                    <warSourceDirectory>web</warSourceDirectory>
                     <webXml>web\WEB-INF\web.xml</webXml>
                 </configuration>
             </plugin>
