@@ -44,7 +44,7 @@ public class CapacityController {
     public List<TreeNode> showTagTree(String id, Long areaId) {
         logger.info(String.format("id:%s", id));
         logger.info(String.format("areaId:%s", areaId));
-        List<TreeNode> treeNodeList = mainService.getTagTree(id, areaId);
+        List<TreeNode> treeNodeList = mainService.getTagTree2(id, areaId);
         return treeNodeList;
     }
 

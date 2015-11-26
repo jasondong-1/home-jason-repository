@@ -43,15 +43,17 @@ $(function () {
     var treeNodes = [];
     zTree = $.fn.zTree.init($("#tagTree"), setting, treeNodes);
     //
-    //$("#btnSearch").on("click", function () {
-    //    var areaId = $("#form-field-select-1").val();
-    //    //var treeObj = $.fn.zTree.getZTreeObj("tagTree");
-    //    //treeObj.setting.async.otherParam = {areaId: areaId};
-    //    setting.async.otherParam = {areaId: areaId};
-    //    var treeNodes = [];
-    //    //alert(JSON.stringify(setting));
-    //    zTree = $.fn.zTree.init($("#tagTree"), setting, treeNodes);
-    //});
+// 当你点击父节点时,会异步访问Controller,把id传过去
+    var treeNodes = [];
+    zTree = $.fn.zTree.init($("#tagTree"), setting, treeNodes);
+    //
+    $("#form-field-select-1").on("change", function () {
+        var areaId = $("#form-field-select-1").find("option:selected").attr("itemId");
+        setting.async.otherParam = {areaId: areaId};
+        var treeNodes = [];
+        //alert(JSON.stringify(setting));
+        zTree = $.fn.zTree.init($("#tagTree"), setting, treeNodes);
+    });
 });
 function onClick(event, treeId, treeNode) {
 

@@ -73,7 +73,7 @@
                                     data-placeholder="Choose a Country...">
                                 <c:forEach var="item" items="${areaList}">
                                     <c:if test="${item.id!='1'}">
-                                        <option value="${item.pinyin}">${item.name}</option>
+                                        <option value="${item.pinyin}" itemId="${item.id}">${item.name}</option>
                                     </c:if>
                                 </c:forEach>
                             </select>

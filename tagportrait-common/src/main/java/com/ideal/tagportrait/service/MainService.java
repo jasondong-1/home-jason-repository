@@ -39,7 +39,7 @@ public class MainService {
             Object[] objects = (Object[]) list.get(i);
 
             String tagId = objects[0].toString();
-            String name = objects[1].toString() + "(" + objects[2].toString() + ")";
+            String name = objects[1].toString() + "(" + objects[4].toString() + ")";
             boolean leafFlag = Boolean.parseBoolean(objects[3].toString());
             //logger.debug("leafFlag:" + leafFlag);
             TreeNode treeNode = new TreeNode(tagId, id, name, !leafFlag);
@@ -59,7 +59,7 @@ public class MainService {
             Object[] objects = (Object[]) list.get(i);
 
             String tagId = objects[0].toString();
-            String name = objects[1].toString();
+            String name = objects[1].toString()+"("+objects[4].toString()+")";
             boolean leafFlag = Boolean.parseBoolean(objects[3].toString());
             //logger.debug("leafFlag:" + leafFlag);
             TreeNode treeNode = new TreeNode(tagId, id, name, !leafFlag);
