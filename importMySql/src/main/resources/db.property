@@ -1,0 +1,5 @@
+ip=10.0.178.202
+port=3306
+username=vendorlx
+pass=vendorlx
+database=vendorlx
