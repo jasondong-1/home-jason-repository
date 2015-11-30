@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="true">
+
+    <description>Shiro安全配置</description>
+    <!--认证授权类-->
+    <bean id="shiroDbRealm" class="com.ideal.tagportrait.security.ShiroDbRealm"/>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="shiroDbRealm"/>
+    </bean>
+
+    <bean id="roleOrFilter" class="com.ideal.tagportrait.security.RolesOrAuthorizationFilter"/>
+
+    <bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+        <property name="redirectUrl" value="/jsp/login.jsp"/>
+    </bean>
+
+    <!--核心过滤器-->
+    <bean id="shiroSecurityFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- shiro的核心安全接口 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 要求登录时的链接 -->
+        <property name="loginUrl" value="/jsp/login.jsp"/>
+        <!-- 登陆成功后要跳转的连接 -->
+        <property name="successUrl" value="/main/index.do"/>
+        <!-- 未授权时要跳转的连接 -->
+        <property name="unauthorizedUrl" value="/jsp/unauthorized.jsp"/>
+        <property name="filters">
+            <map>
+                <entry key="rolesor" value-ref="roleOrFilter"/>
+                <entry key="logout" value-ref="logout"/>
+            </map>
+        </property>
+        <!-- shiro连接约束配置,安全控制只会在下面的路径中匹配 -->
+        <property name="filterChainDefinitions">
+            <value>
+                /jsp/login.jsp = authc
+                /logout.do = logout
+                /main/** = rolesor[admin]
+                /monitor/** = rolesor[admin]
+                /console/** = rolesor[admin]
+                /ability/** = rolesor[admin]
+                /capacity/** = rolesor[admin]
+            </value>
+        </property>
+    </bean>
+
+    <context:annotation-config/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <context:component-scan base-package="com.ideal.tagportrait.security.service"/>
+    <jpa:repositories base-package="com.ideal.tagportrait.security.repository"
+                      factory-class="com.ideal.tagportrait.framework.orm.FrameworkJpaRepositoryFactoryBean"/>
+</beans>

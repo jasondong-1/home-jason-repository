@@ -1,0 +1,63 @@
+#popup_container {
+    BORDER: #b4c2cc 2px solid;
+    MIN-WIDTH: 300px;
+    FONT-SIZE: 12px;
+    BACKGROUND: #fff;
+    MAX-WIDTH: 600px;
+    COLOR: #000000;
+    FONT-FAMILY: Arial, sans-serif;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px
+}
+
+#popup_title {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    position: relative;
+    height: 20px;
+    background: #f7f7f7;
+    background-image: -webkit-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background-image: -o-linear-gradient(top, #ffffff 0%, #eeeeee 100%);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #eeeeee 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
+    color: #000000;
+    border-bottom: 1px solid #DDD;
+    padding-left: 0px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14px;
+    TEXT-ALIGN: center
+}
+
+#popup_content {
+    PADDING-RIGHT: 1.75em;
+    PADDING-LEFT: 1.75em;
+    BACKGROUND: no-repeat 16px 16px;
+    PADDING-BOTTOM: 1em;
+    MARGIN: 0em;
+    PADDING-TOP: 1em
+}
+
+.alert#popup_content {
+}
+
+.confirm#popup_content {
+}
+
+.prompt#popup_content {
+}
+
+#popup_message {
+    text-align: center;
+}
+
+#popup_panel {
+    MARGIN: 1em 0em 0em 1em;
+    TEXT-ALIGN: center
+}
+
+#popup_prompt {
+    /*MARGIN: 0.5em 0em*/
+}

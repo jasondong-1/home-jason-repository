@@ -1,0 +1,454 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, pre, a, code, em, img, small, strong, sub, sup, u, i, center, dl, dt, dd, ol, ul, li, form, label {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent
+}
+
+a {
+    color: #007bc4 /*#424242*/;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+ol, ul {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+body {
+    height: 100%;
+    font: 12px/18px "Microsoft Yahei", Tahoma, Helvetica, Arial, Verdana, "\5b8b\4f53", sans-serif;
+    color: #51555C;
+    background: #162934 url(../images/body_bg.gif) repeat-x
+}
+
+img {
+    border: none
+}
+
+#main {
+    /*width: 1200px;*/
+    width: 98%; /*屏幕适配*/
+    min-height: 600px;
+    margin: 10px auto 0 auto;
+    background: #fff;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    padding-bottom: 30px;
+
+}
+
+.wrap {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+.clear {
+    clear: both;
+}
+
+.grid {
+    width: 100%;
+    border-width: 1px;
+    font-family: "Microsoft Yahei";
+}
+
+.grid td {
+    border: solid 1px #CCCCCC;
+    padding: 0 3px;
+    vertical-align: middle;
+    line-height: 25px;
+    font-size: 12px;
+    font-family: "Microsoft Yahei";
+}
+
+.grid th {
+    border: solid 1px #CCCCCC;
+    background-color: #ffffff;
+    padding: 0 3px;
+    vertical-align: middle;
+    line-height: 25px;
+    font-weight: 900;
+    font-size: 13px;
+    font-family: "Microsoft Yahei";
+}
+
+.grid .clear_left {
+    border-left-width: 0px;
+}
+
+.grid .clear_right {
+    border-right-width: 0px;
+}
+
+.grid .clear_top {
+    border-top-width: 0px;
+}
+
+.grid .clear_bottom {
+    border-bottom-width: 0px;
+}
+
+.grid .clear_padding {
+    padding: 0;
+}
+
+.btn-flat {
+    display: inline-block;
+    margin: 0;
+    line-height: 13px;
+    vertical-align: middle;
+    font-size: 12px;
+    text-shadow: none;
+    box-shadow: none;
+    background-image: none;
+    border: 0 none;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 4px;
+    background: #4387bf;
+    border: 1px solid rgb(56, 131, 192);
+    cursor: pointer;
+    padding: 5px 10px;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    transition: all .1s linear;
+    font-family: "Microsoft Yahei";
+}
+
+.formBar {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    clear: both;
+}
+
+.circle {
+    display: block;
+    width: 12px;
+    height: 12px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.tree_plus {
+    background: url("../images/plus.png") no-repeat 1.5% 50%;
+    cursor: pointer;
+    text-align: left;
+    text-indent: 17px;
+}
+
+.tree_minus {
+    background: url("../images/minus.png") no-repeat 1.5% 50%;
+    cursor: pointer;
+    text-align: left;
+    text-indent: 17px;
+}
+
+#main h2 {
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.home_right {
+    width: 775px;
+    float: right;
+    margin: 20px;
+}
+
+#wizard {
+    border: 0px solid #789;
+    font-size: 12px;
+    height: auto;
+    min-height: 600px;
+    margin: 20px auto;
+    /*width: 1200px;*/
+    width: 100%; /*屏幕适配*/
+    overflow: hidden;
+    position: relative;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#wizard .items {
+    width: 20000px;
+    clear: both;
+    position: absolute;
+}
+
+#wizard .right {
+    float: right;
+}
+
+#wizard #status {
+    height: 35px;
+    background: #663399;
+    padding-left: 225px !important;
+}
+
+#status li {
+    float: left;
+    color: #fff;
+    padding: 10px 30px;
+}
+
+#status li.active {
+    background-color: #6699cc;
+    font-weight: normal;
+}
+
+.input {
+    width: 240px;
+    height: 18px;
+    /*margin: 10px auto;*/
+    line-height: 20px;
+    border: 1px solid #d3d3d3;
+    padding: 2px
+}
+
+.page {
+    padding: 20px 30px;
+    width: 1150px;
+    float: left;
+}
+
+.page h3 {
+    height: 40px;
+    font-size: 16px;
+    border-bottom: 1px dotted #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 5px
+}
+
+.page h3 em {
+    font-size: 13px;
+    font-weight: 500;
+    font-style: normal
+}
+
+.page p {
+    line-height: 24px;
+}
+
+.page p label {
+    font-size: 14px;
+    display: block;
+}
+
+.btn_nav {
+    height: 36px;
+    line-height: 36px;
+    margin: 20px auto;
+}
+
+.prev, .next {
+    width: 100px;
+    height: 32px;
+    line-height: 32px;
+    background: url(../../static/images/btn_bg.gif) repeat-x bottom;
+    border: 1px solid #d3d3d3;
+    cursor: pointer
+}
+
+.title {
+    font-size: 14px;
+    /*height: 21px;*/
+    /*width: 100%;*/
+    background: #663399;
+    color: white;
+    text-align: center;
+    /*margin-top: 2px;*/
+    font-weight: bold;
+}
+
+.ui-progressbar {
+    position: relative;
+}
+
+.progress-label {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+#lib_Tab1_sx {
+    width: 1150px;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.lib_tabborder_sx {
+    border: 1px solid #95C9E1;
+}
+
+.lib_Menubox_sx {
+    line-height: 28px;
+    position: relative;
+    float: left;
+    width: 130px;
+    height: 800px;
+    border-right: 1px solid #95C9E1;
+}
+
+.lib_Menubox_sx ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    margin-left: 10px;
+    height: 25px;
+    text-align: center;
+}
+
+.lib_Menubox_sx li {
+    display: block;
+    cursor: pointer;
+    width: 114px;
+    color: #949694;
+    font-weight: bold;
+    margin-bottom: 5px;
+    height: 25px;
+    line-height: 25px;
+    background-color: #E4F2FD
+}
+
+.lib_Menubox_sx li.hover {
+    padding: 0px;
+    background: #fff;
+    width: 116px;
+    border: 1px solid #95C9E1;
+    border-right: 0;
+    color: #739242;
+    height: 25px;
+    line-height: 25px;
+}
+
+.lib_Contentbox_sx {
+    margin-top: 0px;
+    border-top: none;
+    padding: 15px;
+    border-left: 0;
+    margin-left: 130px;
+}
+
+.mainGrid {
+    width: 100%;
+    border-width: 1px;
+    font-family: "Microsoft Yahei";
+}
+
+.mainGrid td {
+    border-top: solid 0px #CCCCCC;
+    border-bottom: solid 1px #CCCCCC;
+    border-left: solid 1px #CCCCCC;
+    border-right: solid 1px #CCCCCC;
+    padding: 0 3px;
+    vertical-align: middle;
+    line-height: 25px;
+    font-size: 12px;
+    font-family: "Microsoft Yahei";
+}
+
+.echarts {
+    min-height: 600px;
+    height: auto;
+    /*width: 760px;*/
+    border-top: solid 0px #CCCCCC;
+    border-bottom: solid 1px #CCCCCC;
+    border-left: solid 1px #CCCCCC;
+    border-right: solid 1px #CCCCCC;
+    padding: 5px;
+}
+
+.subNavBox {
+    border: solid 0px #e5e3da;
+}
+
+.subNav {
+    border: solid 1px #e5e3da;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    color: #999;
+    line-height: 28px;
+    padding-left: 10px;
+    background: url(../../static/images/jiantou1.jpg) no-repeat;
+    background-position: 95% 50%;
+}
+
+.subNav:hover {
+    color: #277fc2;
+}
+
+.currentDd {
+    color: #277fc2
+}
+
+.currentDt {
+    background-image: url(../../static/images/jiantou.jpg);
+}
+
+.navContent {
+    display: none;
+    border-top: solid 0px #e5e3da;
+}
+
+/* ProgressBar */
+.progressBar {
+    border: solid 1px #86a5ad;
+    background: #FFF url(../images/progressBar_m.gif) no-repeat 10px 10px;
+}
+
+.progressBar {
+    display: none;
+    width: 148px;
+    height: 28px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -74px;
+    margin-top: -14px;
+    padding: 10px 10px 10px 50px;
+    text-align: left;
+    line-height: 27px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 2001;
+}
+
+.background {
+    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    background: #FFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+}
