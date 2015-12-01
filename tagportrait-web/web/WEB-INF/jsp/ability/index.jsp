@@ -45,7 +45,7 @@
                         'echarts/chart/pie',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
                     ],
                     function (ec) {
-                        var name = "文化教育"; //现在tb_tag表里体育id为27 是最小的，查询是按id正向排序的，如果tb_tag表id变化这里要做相应的调整
+                        var name = "财经"; //现在tb_tag表里体育id为27 是最小的，查询是按id正向排序的，如果tb_tag表id变化这里要做相应的调整
                         var areaId = $("#form-field-select-1").val();
                         var url = 'show_tag_chart.do'
                         var data = {tagName: name, areaId: areaId};

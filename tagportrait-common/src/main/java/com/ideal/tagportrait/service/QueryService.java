@@ -41,13 +41,13 @@ public class QueryService {
         LinkedList tags=new LinkedList<String>();
         getTagPath(tags,tagId);
         String tag=ListToString(tags);
-        DBCollection collection = mongoManager.getCollection("adTag_ciphertext");
+        DBCollection collection = mongoManager.getCollection("tagAd");
         BasicDBObject object = new BasicDBObject("city", city).append("tag", tag);
         BasicDBObject k1 = new BasicDBObject("ads", 1);
         DBObject one = collection.findOne(object, k1);
         List<String> mdmes = null;
         if (one != null) {
-            Object o = one.get("ads");//adxxx+meidsxxx_MEIDmeidxxxx:n,
+            Object o = one.get("ads");//adxxx_AM_meidsxxx_MEID_meidxxxx:n,
             if (o != null) {
                 String s = (String) o;
                 if (!s.isEmpty()) {
@@ -85,7 +85,7 @@ public class QueryService {
                 }
             }
         };
-        final String SEPARATOR_AD="\\+";
+        final String SEPARATOR_AD="_AM_";
         final String SEPARATOR_MEID="_MEID_";
         public abstract void getValue(List<String> mdmes,String record);
     }
